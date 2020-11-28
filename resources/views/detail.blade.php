@@ -2,26 +2,17 @@
 
 @section('content')
 
-
-<h1 class="mt-5"></h1>
-
-<style>
-	/* .hero {
-		display: grid;
-		grid-template-columns: 1fr 2fr;
-		align-items: center;
-		border: 1px solid #eee;
-  } */
-
-</style>
-
+<p>
+	<a href="#" class="badge badge-primary">Primary</a>
+	<a href="#" class="badge badge-secondary">Secondary</a>
+	<a href="#" class="badge badge-success">Success</a>
+	<a href="#" class="badge badge-danger">Danger</a>
+</p>
 
 <div class="hero">
 	<h1 class="display-4">Card Title</h1>
 	<p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-	{{-- <img src="https://picsum.photos/id/{{ rand(100,600) }}/500/250" class="card-img" alt="..."> --}}
 </div>
-
 
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
 	<div class="carousel-inner">
@@ -46,7 +37,6 @@
 </div>
 
 
-
 <style>
 	.specs {
 		display: grid;
@@ -62,8 +52,8 @@
 	}
 
 	.icons img {
-		width: 64px;
-		height: 64px;
+		width: 48px;
+		height: 48px;
 	}
 
 </style>
@@ -85,19 +75,19 @@
 
 </div>
 <style>
-	.features {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-gap: 1.5rem;
-	}
+	@@media (min-width: 768px) {
+		.features {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 1.5rem;
+		}
 
-	.feature {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		align-items: start;
-		grid-gap: 1.5rem;
-
-
+		.feature {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			align-items: start;
+			grid-gap: 1.5rem;
+		}
 	}
 
 	.feature img {
@@ -121,46 +111,22 @@
 
 <div class="optional-specs">
 	<table class="table table-sm">
-		<thead>
-			<tr>
-				<th>thead</th>
-				<th>thead</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>tbody</td>
-				<td>tbody</td>
-			</tr>
-		</tbody>
-		<thead>
-			<tr>
-				<th>thead</th>
-				<th>thead</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>tbody</td>
-				<td>tbody</td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="table table-sm">
-		<thead>
-			<tr>
-				<th>optional-thead1</th>
-				<th>optional-thead2</th>
-				<th>optional-thead3</th>
-				<th>optional-thead4</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>optional-tbody1</td>
-				<td>optional-tbody2</td>
-				<td>optional-tbody3</td>
-			</tr>
+		<tr>
+			<th>thead</th>
+			<td>tbody</td>
+		</tr>
+		<tr>
+			<th>thead</th>
+			<td>tbody</td>
+		</tr>
+		<tr>
+			<th>thead</th>
+			<td>tbody</td>
+		</tr>
+		<tr>
+			<th>thead</th>
+			<td>tbody</td>
+		</tr>
 		</tbody>
 	</table>
 </div>
