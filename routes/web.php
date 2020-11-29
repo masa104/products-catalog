@@ -16,8 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/list', function () {
     return view('list');
 })->name('list');
+
+Route::get('/items', function () {
+    return view('items');
+})->name('items');
 
 Route::get('/detail', function () {
     return view('detail');

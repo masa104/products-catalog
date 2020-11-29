@@ -84,7 +84,7 @@
 
 		.feature {
 			display: grid;
-			grid-template-columns: 2fr 1fr;
+			grid-template-columns: 4fr 3fr;
 			align-items: start;
 			grid-gap: 1.5rem;
 		}
@@ -104,7 +104,7 @@
 				<h1>Lorem ipsum dolor sit.</h1>
 				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet natus reiciendis corporis possimus officia quo voluptatem similique. Explicabo, eum reiciendis!</p>
 			</div>
-			<img src="https://picsum.photos/id/{{ rand(100,600) }}/700/350" alt="...">
+			<img src="https://picsum.photos/id/{{ rand(100,600) }}/700/500" alt="...">
 		</div>
 	@endfor
 </div>

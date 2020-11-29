@@ -1,6 +1,5 @@
-<header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<header class="mb-5">
+  <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000">
     <div class="container">
       <a class="navbar-brand" href="#">Logo</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,4 +24,5 @@
       </div>
     </div>
   </nav>
+  @include('partials/breadcrumbs')
 </header>
