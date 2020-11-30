@@ -1,4 +1,4 @@
-<header class="mb-5">
+<header class="mb-4">
   <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000">
     <div class="container">
       <a class="navbar-brand" href="#">Logo</a>

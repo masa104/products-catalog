@@ -1,0 +1,45 @@
+.grid,
+.cat-grid {
+	display: grid;
+	grid-gap: 1.5rem;
+}
+
+.grid {
+	grid-template-columns: repeat(1, 1fr);
+
+}
+
+.grid__inner .image {
+	overflow: hidden;
+}
+
+.main-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+
+@media (min-width: 992px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 320px;
+	}
+
+	.cat-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.grid__inner--1 {
+		grid-column: 1 / 3;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.grid__inner--1 .image {
+		grid-column: 1 / 2;
+	}
+
+
+}

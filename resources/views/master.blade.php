@@ -18,34 +18,9 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cosmo/bootstrap.min.css">
 	{{-- <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="{{ asset('/css/style.min.css') }}">
 
-	<style>
-		/* main>.container {
-			padding-top: 80px;
-    } */
-		body {
-			background-color: #f1f1f1;
-		}
-
-		#gotop {
-			display: none;
-		}
-
-		#gotop.show {
-			display: inline-block;
-			position: fixed;
-			right: 2rem;
-			bottom: 2rem;
-			width: 48px;
-			height: 48px;
-			background: rgba(0, 0, 0, .8);
-			color: #fff;
-			text-align: center;
-			line-height: 48px;
-			z-index: 99;
-		}
-
-	</style>
+	@yield('stylesheet')
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -54,12 +29,12 @@
 
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0" style="margin-bottom: 7rem;">
-		<div class="container">
+		{{-- <div class="container"> --}}
 
 
-			@yield('content')
+		@yield('content')
 
-		</div>
+		{{-- </div> --}}
 	</main>
 	<!-- End page content -->
 
@@ -70,35 +45,19 @@
 		</div>
 	</footer>
 	<a id="gotop" href="#">▲</a>
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
 	@yield('script')
 	<script>
 		$(document).ready(function () {
 
-			$("a.grouped_elements").fancybox({
-				'transitionIn': 'elastic',
-				'transitionOut': 'elastic',
-				'speedIn': 600,
-				'speedOut': 200,
-				'overlayShow': false
-			});
-
-			const gotop = document.getElementById('gotop');
-			window.addEventListener('scroll', () => {
-				console.log(window.scrollY);
-				if (window.scrollY > 100) {
-					gotop.classList.add('show');
-				} else {
-					gotop.classList.remove('show');
-				}
-			}, false);
 		});
 
 	</script>
+	<script src="{{ asset('/js/gotop.js') }}"></script>
 </body>
 
 </html>

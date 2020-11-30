@@ -1,0 +1,2 @@
+.grid{display:grid;grid-template-columns:repeat(1, 1fr);grid-template-rows:auto;grid-gap:1.5rem}.main-image img{display:block;width:100%;height:100%;object-fit:cover}@media (min-width: 768px){.grid{grid-template-columns:repeat(2, 1fr)}.grid__inner--0{display:grid;grid-template-columns:repeat(3, 1fr);grid-template-rows:auto}.grid__inner--0{grid-column:1 / 3}.grid__inner--0 .main-image{grid-column:1 / 3}.grid__inner--0 .body{grid-column:3 / 4}}
+/*# sourceMappingURL=list.min.css.map */
