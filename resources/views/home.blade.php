@@ -1,70 +1,81 @@
 @extends('master')
 
 @section('stylesheet')
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="{{ asset('/css/home.min.css') }}">
 @endsection
 
 @section('content')
-<div class="pb-5">
+<div class="section">
 	<div class="container">
-		<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active" data-interval="10000">
-					<img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
-				</div>
-				<div class="carousel-item" data-interval="2000">
-					<img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
-				</div>
-				<div class="carousel-item">
-					<img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
-				</div>
+
+		<div class="swiper-container">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+				...
 			</div>
-			<a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+			<!-- If we need pagination -->
+			<div class="swiper-pagination"></div>
+
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
 		</div>
+
 	</div>
 </div>
 
-<div class="py-5" style="background-color: #dcdcdc;">
+<section class="section home">
 	<div class="container">
-		<h1>Find Items</h1>
-		<div class="cat-grid">
+		<h1 class="section-heading">Search Items</h1>
+		<div class="grid">
 			@for($i = 0; $i < 8; $i++)
-				<div class="card border-0">
-					<a href="{{ route('list') }}">
-						<img src="https://picsum.photos/id/{{ rand(1, 10) * $i }}/500/250" class="card-img" alt="...">
+				<article class="card grid-item">
+					<a class="card-link" href="{{ route('list') }}">
+						<div class="cover-img-box">
+							<img src="https://picsum.photos/id/{{ rand(1, 10) * $i }}/500/250" class="card-img cover-img" alt="...">
+						</div>
 						<div class="card-body">
-							<h5 class="card-title">Category {{ $i + 1 }}</h5>
+							<h1 class="h5 card-title mb-0">Category {{ $i + 1 }}</h1>
 						</div>
 					</a>
-				</div>
+				</article>
 			@endfor
 		</div>
 	</div>
-</div>
+</section>
 
-<div class="py-5">
+<section class="section new-arrivals">
 	<div class="container">
-		<h1>New Arrivals</h1>
+		<h1 class="section-heading">New Arrivals</h1>
 		<div class="grid">
-			@for($i = 0; $i < 10; $i++) <a href="{{ route('detail') }}" class="grid__inner grid__inner--{{ $i % 5 + 1 }} bg-white">
-				<div class="main-image">
-					<img class="" src="https://picsum.photos/id/{{ rand(1, 100) * $i+ 1 }}/585/365" alt="...">
-				</div>
-				<div class="card-body">
-					<p>Lorem ipsum dolor sit amet.</p>
-					<h1 class="">Item {{ $i + 1 }}</h1>
-				</div>
-				</a>
+			@for($i = 0; $i < 10; $i++)
+				<article class="card grid-item -num-{{ $i % 5 + 1 }}">
+					<a class="card-link" href="{{ route('detail') }}">
+						<div class="cover-img-box">
+							<img class="card-img cover-img" src="https://picsum.photos/id/{{ rand(1, 100) * $i+ 1 }}/500/240" alt="...">
+						</div>
+						<div class="card-body">
+							<p><small class="px-2 border border-danger text-danger">New</small></p>
+							<p class="mb-1">Lorem ipsum dolor sit amet.</p>
+							<h1 class="h4 card-title">Item {{ $i + 1 }}</h1>
+							<p class="text-danger mb-0">Sales on 12/1</p>
+						</div>
+					</a>
+				</article>
 			@endfor
 		</div>
 	</div>
-</div>
+</section>
 
+@endsection
+
+@section('script')
+<script src="//unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{{ asset('/js/swiper.js') }}"></script>
 @endsection

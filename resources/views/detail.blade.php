@@ -1,111 +1,111 @@
 @extends('master')
 
 @section('stylesheet')
+
 <link rel="stylesheet" href="{{ asset('/css/detail.min.css') }}">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 @endsection
 
 @section('content')
 
-<div class="pb-2">
+<section class="section item-summary">
 	<div class="container">
 		<div class="outline">
-			<div>
-				<p>Sub Category</p>
-				<h1>Item Name</h1>
-				<p class="lead mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti molestias accusamus praesentium unde quo deserunt debitis laudantium, magni nulla?</p>
-			</div>
-			<div class="icons">
-				@for($i = 0; $i < 5; $i++)
-					<img src="https://picsum.photos/id/{{ rand(100,600) }}/64/64" alt="...">
-				@endfor
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="py-4">
-	<div class="container">
-		<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active" data-interval="10000">
-					<img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
+			<h2 class="h4 mb-1 text-black-50">Sub Category</h2>
+			<h1 class="display-4">Item Name</h1>
+			<div class="grid">
+				<p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti molestias accusamus praesentium unde quo deserunt debitis laudantium, magni nulla?</p>
+				<div class="icons">
+					@for($i = 0; $i < 5; $i++)
+						<img src="https://picsum.photos/id/{{ rand(100,600) }}/64/64" alt="...">
+					@endfor
 				</div>
-				{{-- <div class="carousel-item" data-interval="2000">
-					<img src="https://picsum.photos/id/{{ rand(100,600) }}/1200/630" alt="" />
 			</div>
-			<div class="carousel-item">
-				<img src="https://picsum.photos/id/{{ rand(100,600) }}/1200/630" alt="" />
-			</div> --}}
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
 	</div>
-</div>
+</section>
 
-<div class="py-4">
+<section class="section">
 	<div class="container">
-		<h1>Features</h1>
-		<div class="features">
+		<div class="swiper-container">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+			</div>
+
+			<div class="swiper-pagination"></div>
+
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+		</div>
+
+	</div>
+</section>
+
+<section class="section features">
+	<div class="container">
+		<h1 class="section-heading">Features</h1>
+		<div class="grid">
 			@for($i = 0; $i < 3; $i++)
 				@php
 					$num = ($i + 1) % 2 !== 0 ? 'odd' : 'even';
 				@endphp
-				<div class="feature -num-{{ $num }}">
+				<article class="feature -num-{{ $num }}">
 					<div class="sentense">
-						<h3>Lorem ipsum dolor sit.</h3>
+						<h1 class="h2">Lorem ipsum dolor sit.</h1>
 						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, rem doloremque veniam aperiam asperiores necessitatibus doloribus ut autem nulla temporibus? Numquam illum consectetur ipsam beatae est accusantium soluta quas nihil eius facilis dolorem deleniti id, assumenda iusto pariatur distinctio reprehenderit vel impedit dolorum? Sint obcaecati error quasi, odit reiciendis similique unde asperiores dicta! Molestias corporis rerum aperiam laborum vel quasi.</p>
 					</div>
-					<div class="main-image">
-						<img src="https://picsum.photos/id/{{ rand(100,600) }}/600/400" alt="...">
+					<div class="cover-img-box">
+						<img class="cover-img" src="https://picsum.photos/id/{{ rand(100,600) }}/600/400" alt="...">
 					</div>
-				</div>
+				</article>
 			@endfor
 		</div>
 	</div>
-</div>
+</section>
 
-<div class="py-4">
+<section class="section">
 	<div class="container">
-		<h1>Specs</h1>
-		<div class="optional-specs">
-			<table class="table table-sm">
-				<tr>
-					<th>thead</th>
-					<td>tbody</td>
-				</tr>
-				<tr>
-					<th>thead</th>
-					<td>tbody</td>
-				</tr>
-				<tr>
-					<th>thead</th>
-					<td>tbody</td>
-				</tr>
-				<tr>
-					<th>thead</th>
-					<td>tbody</td>
-				</tr>
+		<h1 class="section-heading">Specs</h1>
+		<div class="specs table-responsive">
+			<table class="table">
+				@for($i = 0; $i < 7; $i++)
+					<tr>
+						<th class="table-secondary" scope="row">Lorem</th>
+						<td>
+							Lorem ipsum dolor sit.
+						</td>
+						<th class="table-secondary" scope="row">Lorem</th>
+						<td>
+							Lorem ipsum dolor sit amet consectetur.
+						</td>
+					</tr>
+				@endfor
 			</table>
 		</div>
 	</div>
-</div>
+</section>
 
-<div class="py-4">
+<section class="section">
 	<div class="container">
+		<h1 class="section-heading">Share</h1>
 		<div class="social-btns">
-			<ul>
-				<li><button class="btn btn-sm btn-primary">Twitter</button></li>
-				<li><button class="btn btn-sm btn-info">Instagram</button></li>
-				<li><button class="btn btn-sm btn-success">Facebook</button></li>
-			</ul>
+			<button class="btn btn-lg btn-primary">Twitter</button>
+			<button class="btn btn-lg btn-info">Instagram</button>
+			<button class="btn btn-lg btn-success">Facebook</button>
 		</div>
 	</div>
-</div>
+</section>
 
+
+
+@endsection
+
+@section('script')
+<script src="//unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{{ asset('/js/swiper.js') }}"></script>
 @endsection

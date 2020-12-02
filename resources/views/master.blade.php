@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<title></title>
+	<title>商品情報デモ</title>
 
 	<meta property="og:title" content="">
 	<meta property="og:type" content="">
@@ -19,7 +19,6 @@
 	{{-- <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
 	<link rel="stylesheet" href="{{ asset('/css/style.min.css') }}">
-
 	@yield('stylesheet')
 </head>
 
@@ -29,12 +28,10 @@
 
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0" style="margin-bottom: 7rem;">
-		{{-- <div class="container"> --}}
 
 
 		@yield('content')
 
-		{{-- </div> --}}
 	</main>
 	<!-- End page content -->
 
@@ -49,6 +46,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
 
 	@yield('script')
 	<script>
