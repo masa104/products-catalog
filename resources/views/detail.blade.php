@@ -76,11 +76,11 @@
 				@for($i = 0; $i < 7; $i++)
 					<tr>
 						<th class="table-secondary" scope="row">Lorem</th>
-						<td>
+						<td class="table-light">
 							Lorem ipsum dolor sit.
 						</td>
 						<th class="table-secondary" scope="row">Lorem</th>
-						<td>
+						<td class="table-light">
 							Lorem ipsum dolor sit amet consectetur.
 						</td>
 					</tr>
@@ -93,14 +93,19 @@
 <section class="section">
 	<div class="container">
 		<h1 class="section-heading">Share</h1>
-		<div class="social-btns">
-			<button class="btn btn-lg btn-primary">Twitter</button>
-			<button class="btn btn-lg btn-info">Instagram</button>
-			<button class="btn btn-lg btn-success">Facebook</button>
+		<div class="social-btns text-center">
+			<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text=[PAGE_TITLE]" rel="nofollow" target="_blank">
+				<img src="{{ asset('/images/twitter.svg') }}" alt="Twitter"> Twitter
+			</a>
+			<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow" target="_blank">
+				<img src="{{ asset('/images/facebook.svg') }}" alt="Facebook"> Facebook
+			</a>
+			<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={ページのタイトル}" rel="nofollow" rel="nofollow" target="_blank">
+				<img src="{{ asset('/images/pocket.svg') }}" alt="Pocket"> Pocket
+			</a>
 		</div>
 	</div>
 </section>
-
 
 
 @endsection

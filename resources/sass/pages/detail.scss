@@ -42,3 +42,45 @@
 		text-align: right;
 	}
 }
+
+.social-btns img {
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+}
+
+.social-btns a {
+	transition: all .3s ease;
+	margin: 0 .35rem;
+	min-width: 180px;
+	background-color: #fff;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+	&:hover {
+		box-shadow: none;
+	}
+
+	&.twitter {
+		color: #1ea1f2;
+	}
+
+	&.facebook {
+		color: #1777f3;
+	}
+
+	&.pocket {
+		color: #ef4156;
+	}
+
+	&.twitter:hover {
+		border-color: #1ea1f2;
+	}
+
+	&.facebook:hover {
+		border-color: #1777f3;
+	}
+
+	&.pocket:hover {
+		border-color: #ef4156;
+	}
+}
