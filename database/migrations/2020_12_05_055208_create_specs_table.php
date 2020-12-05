@@ -13,18 +13,19 @@ class CreateSpecsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('specs', function (Blueprint $table) {
             $table->timestamps();
             $table->softDeletes();
             $table->bigIncrements('id');
-            $table->bigInteger('item_id');
-            $table->string('head', 100);
-            $table->string('body', 255);
+            $table->decimal('code', 13, 0)->index();
+            $table->string('heading', 100);
+            $table->string('content', 255);
             $table->integer('priority')->unsigned()->default(0);
-            $table->boolean('is_public')->default(0);
+            $table->boolean('is_public')->default(0)->index();
 
-            $table->foreign('item_id')
-                ->references('id')
+            $table->foreign('code')
+                ->references('code')
                 ->on('items')
                 ->onDelete('cascade');
         });
