@@ -51,6 +51,29 @@
 		margin-bottom: 1.5rem;
 		line-height: 1.24;
 	}
+
+	.feature .cover-img-box {
+		display: inline-block;
+		position: relative;
+		margin-top: 1rem;
+	}
+
+	.feature .cover-img-box:after {
+		position: absolute;
+		display: block;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		// box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+			rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+		transform: rotate(5deg);
+		/* 回転させる */
+		background: #fff;
+		z-index: -1;
+	}
 }
 
 @media (min-width: 768px) {

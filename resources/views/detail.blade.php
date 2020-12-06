@@ -74,24 +74,24 @@
 		<div class="specs table-responsive">
 			<table class="table">
 				<tr>
-					<th class="table-secondary" scope="row">Color</th>
-					<td class="table-light">{{ $item->color }}</td>
+					<th class="border-top-0" scope="row">Color</th>
+					<td class="border-top-0">{{ $item->color }}</td>
 				</tr>
 				<tr>
-					<th class="table-secondary" scope="row">Width</th>
-					<td class="table-light">{{ $item->width }}mm</td>
+					<th scope="row">Width</th>
+					<td>{{ $item->width }}mm</td>
 				</tr>
 				<tr>
-					<th class="table-secondary" scope="row">Height</th>
-					<td class="table-light">{{ $item->height }}mm</td>
+					<th scope="row">Height</th>
+					<td>{{ $item->height }}mm</td>
 				</tr>
 				<tr>
-					<th class="table-secondary" scope="row">Depth</th>
-					<td class="table-light">{{ $item->depth }}mm</td>
+					<th scope="row">Depth</th>
+					<td>{{ $item->depth }}mm</td>
 				</tr>
 				<tr>
-					<th class="table-secondary" scope="row">Weight</th>
-					<td class="table-light">{{ $item->weight }}g</td>
+					<th scope="row">Weight</th>
+					<td>{{ $item->weight }}g</td>
 				</tr>
 			</table>
 		</div>
