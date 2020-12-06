@@ -19,22 +19,26 @@ class CategoriesTableSeeder extends Seeder
         $faker = Faker::create('en_US');
 
         for ($i = 0; $i < 6; $i++) {
+            $name = trim($faker->unique()->sentence(1), '.');
+            $slug = strtolower(str_replace(' ', '-', $name));
             Category::create([
-                'parent'    => 0,
-                'slug'      => $faker->unique()->word(),
-                'name'      => ucfirst($faker->unique()->word()),
+                'parent_id' => 0,
+                'slug'      => $slug,
+                'name'      => $name,
                 'desc'      => $faker->sentence(10),
                 'priority'  => $i,
                 'is_public' => 1
             ]);
         }
-        $cats = Category::where('parent', 0)->get();
+        $cats = Category::where('parent_id', 0)->get();
         foreach ($cats as $i => $cat) {
-            for ($i = 0; $i < rand(2, 4); $i++) {
+            for ($i = 0; $i < rand(3, 9); $i++) {
+                $name = trim($faker->unique()->sentence(1), '.');
+                $slug = strtolower(str_replace(' ', '-', $name));
                 Category::create([
-                    'parent'    => $cat->id,
-                    'slug'      => $faker->unique()->word(),
-                    'name'      => ucfirst($faker->unique()->word()),
+                    'parent_id' => $cat->id,
+                    'slug'      => $slug,
+                    'name'      => $name,
                     'desc'      => $faker->sentence(10),
                     'priority'  => $i,
                     'is_public' => 1
@@ -42,18 +46,18 @@ class CategoriesTableSeeder extends Seeder
             }
         }
 
-        $cats = Category::where('parent', '<>', 0)->get();
-        foreach ($cats as $i => $cat) {
-            for ($i = 0; $i < rand(3, 6); $i++) {
-                Category::create([
-                    'parent'    => $cat->id,
-                    'slug'      => $faker->unique()->word(),
-                    'name'      => ucfirst($faker->unique()->word()),
-                    'desc'      => $faker->sentence(10),
-                    'priority'  => $i,
-                    'is_public' => 1
-                ]);
-            }
-        }
+        // $cats = Category::where('parent_id', '<>', 0)->get();
+        // foreach ($cats as $i => $cat) {
+        //     for ($i = 0; $i < rand(4, 8); $i++) {
+        //         Category::create([
+        //             'parent_id'    => $cat->id,
+        //             'slug'      => $faker->unique()->word(),
+        //             'name'      => ucfirst(trim($faker->unique()->sentence(1), '.')),
+        //             'desc'      => $faker->sentence(10),
+        //             'priority'  => $i,
+        //             'is_public' => 1
+        //         ]);
+        //     }
+        // }
     }
 }

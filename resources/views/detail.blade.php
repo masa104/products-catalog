@@ -11,10 +11,10 @@
 <section class="section item-summary">
 	<div class="container">
 		<div class="outline">
-			<h2 class="h4 mb-1 text-black-50">Sub Category</h2>
-			<h1 class="display-4">Item Name</h1>
+			<h2 class="h3 mb-1 text-black-50">{{ $item->cat->name }}</h2>
+			<h1 class="display-4">{{ $item->name }} <span class="h3">{{ $item->model }}</span></h1>
 			<div class="grid">
-				<p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti molestias accusamus praesentium unde quo deserunt debitis laudantium, magni nulla?</p>
+				<p class="">{{ $item->desc }}</p>
 				<div class="icons">
 					@for($i = 0; $i < 5; $i++)
 						<img src="https://picsum.photos/id/{{ rand(100,600) }}/64/64" alt="...">
@@ -50,19 +50,23 @@
 	<div class="container">
 		<h1 class="section-heading">Features</h1>
 		<div class="grid">
-			@for($i = 0; $i < 3; $i++)
+			@foreach($item->features as $feature)
 				@php
-					$num = ($i + 1) % 2 !== 0 ? 'odd' : 'even';
+					$num = ($loop->index + 1) % 2 !== 0 ? 'odd' : 'even';
 				@endphp
 				<article class="feature -num-{{ $num }}">
 					<div class="sentense">
-						<h1 class="h2">Lorem ipsum dolor sit.</h1>
-						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, rem doloremque veniam aperiam asperiores necessitatibus doloribus ut autem nulla temporibus? Numquam illum consectetur ipsam beatae est accusantium soluta quas nihil eius facilis dolorem deleniti id, assumenda iusto pariatur distinctio reprehenderit vel impedit dolorum? Sint obcaecati error quasi, odit reiciendis similique unde asperiores dicta! Molestias corporis rerum aperiam laborum vel quasi.</p>
+						<h1 class="h2">{{ $feature->heading }}</h1>
+						<p>{{ $feature->content }}</p>
 					</div>
 					<div class="cover-img-box">
 						<img class="cover-img" src="https://picsum.photos/id/{{ rand(100,600) }}/600/400" alt="...">
 					</div>
 				</article>
+			@endforeach
+			@for($i = 0; $i < 3; $i++)
+
+
 			@endfor
 		</div>
 	</div>
@@ -73,18 +77,26 @@
 		<h1 class="section-heading">Specs</h1>
 		<div class="specs table-responsive">
 			<table class="table">
-				@for($i = 0; $i < 7; $i++)
-					<tr>
-						<th class="table-secondary" scope="row">Lorem</th>
-						<td class="table-light">
-							Lorem ipsum dolor sit.
-						</td>
-						<th class="table-secondary" scope="row">Lorem</th>
-						<td class="table-light">
-							Lorem ipsum dolor sit amet consectetur.
-						</td>
-					</tr>
-				@endfor
+				<tr>
+					<th class="table-secondary" scope="row">Color</th>
+					<td class="table-light">{{ $item->color }}</td>
+				</tr>
+				<tr>
+					<th class="table-secondary" scope="row">Width</th>
+					<td class="table-light">{{ $item->width }}mm</td>
+				</tr>
+				<tr>
+					<th class="table-secondary" scope="row">Height</th>
+					<td class="table-light">{{ $item->height }}mm</td>
+				</tr>
+				<tr>
+					<th class="table-secondary" scope="row">Depth</th>
+					<td class="table-light">{{ $item->depth }}mm</td>
+				</tr>
+				<tr>
+					<th class="table-secondary" scope="row">Weight</th>
+					<td class="table-light">{{ $item->weight }}g</td>
+				</tr>
 			</table>
 		</div>
 	</div>
@@ -94,13 +106,13 @@
 	<div class="container">
 		<h1 class="section-heading">Share</h1>
 		<div class="social-btns text-center">
-			<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text=[PAGE_TITLE]" rel="nofollow" target="_blank">
+			<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow" target="_blank">
 				<img src="{{ asset('/images/twitter.svg') }}" alt="Twitter"> Twitter
 			</a>
 			<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow" target="_blank">
 				<img src="{{ asset('/images/facebook.svg') }}" alt="Facebook"> Facebook
 			</a>
-			<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={ページのタイトル}" rel="nofollow" rel="nofollow" target="_blank">
+			<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow" rel="nofollow" target="_blank">
 				<img src="{{ asset('/images/pocket.svg') }}" alt="Pocket"> Pocket
 			</a>
 		</div>

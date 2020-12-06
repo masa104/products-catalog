@@ -36,7 +36,7 @@
 		<div class="grid">
 			@foreach($cats as $cat)
 				<article class="card grid-item">
-					<a class="card-link" href="{{ route('category', ['firstCat' => $cat->slug]) }}">
+					<a class="card-link" href="{{ route('list', [$cat->slug]) }}">
 						<div class="cover-img-box">
 							<img src="https://picsum.photos/id/{{ rand(1, 10) }}/500/250" class="card-img cover-img" alt="{{ $cat->name }}">
 						</div>
@@ -50,28 +50,28 @@
 	</div>
 </section>
 
-<section class="section new-arrivals">
+{{-- <section class="section new-arrivals">
 	<div class="container">
 		<h1 class="section-heading">New Arrivals</h1>
 		<div class="grid">
-			@for($i = 0; $i < 10; $i++)
+@for($i = 0; $i < 10; $i++)
 				<article class="card grid-item -num-{{ $i % 5 + 1 }}">
-					<a class="card-link" href="{{ route('detail') }}">
-						<div class="cover-img-box">
-							<img class="card-img cover-img" src="https://picsum.photos/id/{{ rand(1, 100) * $i+ 1 }}/500/240" alt="...">
-						</div>
-						<div class="card-body">
-							<p><small class="px-2 border border-danger text-danger">New</small></p>
-							<p class="mb-1">Lorem ipsum dolor sit amet.</p>
-							<h1 class="h4 card-title">Item {{ $i + 1 }}</h1>
-							<p class="text-danger mb-0">Sales on 12/1</p>
-						</div>
-					</a>
-				</article>
-			@endfor
-		</div>
+<a class="card-link" href="{{ route('detail') }}">
+	<div class="cover-img-box">
+		<img class="card-img cover-img" src="https://picsum.photos/id/{{ rand(1, 100) * $i+ 1 }}/500/240" alt="...">
 	</div>
-</section>
+	<div class="card-body">
+		<p><small class="px-2 border border-danger text-danger">New</small></p>
+		<p class="mb-1">Lorem ipsum dolor sit amet.</p>
+		<h1 class="h4 card-title">Item {{ $i + 1 }}</h1>
+		<p class="text-danger mb-0">Sales on 12/1</p>
+	</div>
+</a>
+</article>
+@endfor
+</div>
+</div>
+</section> --}}
 
 @endsection
 

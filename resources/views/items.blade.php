@@ -17,24 +17,27 @@
 
 <section class="section items">
 	<div class="container">
-		<h1 class="section-heading">Sub Category 1</h1>
+		<h1 class="section-heading">{{ $cat->name }}</h1>
 		<div class="grid">
-			@for($j = 0; $j < 8; $j++)
-				@php
-					$random=rand(100, 500) * $j;
-				@endphp
+			@foreach($items as $item)
 				<article class="card grid-item">
-					<a class="card-link" href="{{ route('detail') }}">
+					<a class="card-link" href="{{ route('list', [$cat->parent->slug, $cat->slug, $item->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" src=" https://picsum.photos/id/{{ $random }}/500/250" alt="...">
+							<img class="card-img cover-img" src=" https://picsum.photos/id/{{ rand(100, 500) }}/500/250" alt="...">
 						</div>
 						<div class="card-body">
-							<h1 class="h4 card-title">Card title</h1>
-							<p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+							<h1 class="h4 card-title">{{ $item->name }}</h1>
+							<p class="">{{ $item->desc }}</p>
 							<span class="btn btn-sm btn-primary">See Detail</span>
 						</div>
 					</a>
 				</article>
+			@endforeach
+			@for($j = 0; $j < 8; $j++)
+				@php
+					$random=rand(100, 500) * $j;
+				@endphp
+
 			@endfor
 		</div>
 	</div>

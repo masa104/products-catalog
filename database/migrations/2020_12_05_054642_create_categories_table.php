@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->bigIncrements('id');
-            $table->bigInteger('parent')->default(0);
+            $table->bigInteger('parent_id')->default(0);
             $table->string('slug', 100)->unique()->index();
             $table->string('name', 100);
             $table->string('desc', 255);

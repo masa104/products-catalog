@@ -11,26 +11,19 @@
 |
 */
 
-use App\Http\Controllers\CateogryController;
 
-Route::get('/', 'CateogryController@index')->name('home');
-// Route::get('/', function () {
-//     return view('home');
-// })->name('home');
+Route::get('/', 'HomeController@index')
+    ->name('home');
 
-// Route::get('/{firstCat}', 'CateogryController@category')
-// ->name('category');
-Route::get(
-    '/{firstCat:slug}/{secondCat:slug?}',
-    'CateogryController@category'
-)->name('category');
+Route::get('/{lev1}/{lev2?}/{lev3?}', 'HomeController@list')
+    ->name('list');
 
-// Route::get('/items', function () {
-//     return view('items');
-// })->name('items');
+Route::get('/items', function () {
+    return view('items');
+})->name('items');
 
 // Route::get('/detail', function () {
 //     return view('detail');
 // })->name('detail');
 
-// Route::get('/cats', 'CateogryController@index')->name('cats');
+// Route::get('/cats', 'HomeController@index')->name('cats');
