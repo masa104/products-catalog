@@ -28,7 +28,6 @@
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $item->name }}</h1>
 							<p class="">{{ $item->desc }}</p>
-							{{-- <span class="card-btn btn btn-sm btn-primary">See Detail</span> --}}
 						</div>
 					</a>
 				</article>
