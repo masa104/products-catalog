@@ -40,13 +40,11 @@
 	}
 
 	.feature .sentence {
-		// padding: 1rem 0;
 		grid-row: 1 / 2;
 	}
 
 	.feature.-num-even .sentence {
 		grid-column: 2 / 3;
-		// grid-row: 1;
 	}
 
 	.feature-heading {
