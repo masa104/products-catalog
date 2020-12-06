@@ -93,6 +93,12 @@
 					<th scope="row">Weight</th>
 					<td>{{ $item->weight }}g</td>
 				</tr>
+				@foreach($item->specs as $spec)
+					<tr>
+						<th scope="row">{{ Str::ucfirst($spec->heading) }}</th>
+						<td>{{ $spec->content }}</td>
+					</tr>
+				@endforeach
 			</table>
 		</div>
 	</div>
