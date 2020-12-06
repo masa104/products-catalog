@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatagoriesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateCatagoriesTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('catagories', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->timestamps();
             $table->softDeletes();
             $table->bigIncrements('id');
@@ -24,6 +24,8 @@ class CreateCatagoriesTable extends Migration
             $table->string('desc', 255);
             $table->integer('priority')->unsigned()->default(0);
             $table->boolean('is_public')->default(0)->index();
+
+            // $table->foreign('parent')->references('id')->on('categories');
         });
     }
 
@@ -34,6 +36,6 @@ class CreateCatagoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catagories');
+        Schema::dropIfExists('categories');
     }
 }

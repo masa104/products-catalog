@@ -11,18 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+use App\Http\Controllers\CateogryController;
 
-Route::get('/list', function () {
-    return view('list');
-})->name('list');
+Route::get('/', 'CateogryController@index')->name('home');
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
 
-Route::get('/items', function () {
-    return view('items');
-})->name('items');
+// Route::get('/{firstCat}', 'CateogryController@category')
+// ->name('category');
+Route::get(
+    '/{firstCat:slug}/{secondCat:slug?}',
+    'CateogryController@category'
+)->name('category');
 
-Route::get('/detail', function () {
-    return view('detail');
-})->name('detail');
+// Route::get('/items', function () {
+//     return view('items');
+// })->name('items');
+
+// Route::get('/detail', function () {
+//     return view('detail');
+// })->name('detail');
+
+// Route::get('/cats', 'CateogryController@index')->name('cats');

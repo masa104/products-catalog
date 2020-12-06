@@ -34,18 +34,18 @@
 	<div class="container">
 		<h1 class="section-heading">Search Items</h1>
 		<div class="grid">
-			@for($i = 0; $i < 8; $i++)
+			@foreach($cats as $cat)
 				<article class="card grid-item">
-					<a class="card-link" href="{{ route('list') }}">
+					<a class="card-link" href="{{ route('category', ['firstCat' => $cat->slug]) }}">
 						<div class="cover-img-box">
-							<img src="https://picsum.photos/id/{{ rand(1, 10) * $i }}/500/250" class="card-img cover-img" alt="...">
+							<img src="https://picsum.photos/id/{{ rand(1, 10) }}/500/250" class="card-img cover-img" alt="{{ $cat->name }}">
 						</div>
 						<div class="card-body">
-							<h1 class="h5 card-title mb-0">Category {{ $i + 1 }}</h1>
+							<h1 class="h5 card-title mb-0">{{ $cat->name }}</h1>
 						</div>
 					</a>
 				</article>
-			@endfor
+			@endforeach
 		</div>
 	</div>
 </section>
