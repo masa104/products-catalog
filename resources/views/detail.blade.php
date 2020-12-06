@@ -11,13 +11,13 @@
 <section class="section item-summary">
 	<div class="container">
 		<div class="outline">
-			<h2 class="h3 mb-1 text-black-50">{{ $item->cat->name }}</h2>
-			<h1 class="display-4">{{ $item->name }} <span class="h3">{{ $item->model }}</span></h1>
+			<h2 class="h4 mb-1 text-black-50">{{ $item->cat->name }}</h2>
+			<h1 class="item-summary-heading">{{ $item->name }} <span class="h3">{{ $item->model }}</span></h1>
 			<div class="grid">
 				<p class="">{{ $item->desc }}</p>
 				<div class="icons">
 					@for($i = 0; $i < 5; $i++)
-						<img src="https://picsum.photos/id/{{ rand(100,600) }}/64/64" alt="...">
+						<img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/64/64" alt="...">
 					@endfor
 				</div>
 			</div>
@@ -31,9 +31,9 @@
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
 			</div>
 
 			<div class="swiper-pagination"></div>
@@ -55,19 +55,15 @@
 					$num = ($loop->index + 1) % 2 !== 0 ? 'odd' : 'even';
 				@endphp
 				<article class="feature -num-{{ $num }}">
-					<div class="sentense">
-						<h1 class="h2">{{ $feature->heading }}</h1>
+					<div class="sentence">
+						<h1 class="feature-heading h2">{{ $feature->heading }}</h1>
 						<p>{{ $feature->content }}</p>
 					</div>
 					<div class="cover-img-box">
-						<img class="cover-img" src="https://picsum.photos/id/{{ rand(100,600) }}/600/400" alt="...">
+						<img class="cover-img" src="https://picsum.photos/id/{{ round(rand(1,600)) }}/600/400" alt="{{ $feature->heading }}">
 					</div>
 				</article>
 			@endforeach
-			@for($i = 0; $i < 3; $i++)
-
-
-			@endfor
 		</div>
 	</div>
 </section>

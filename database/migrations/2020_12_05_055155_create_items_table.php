@@ -23,6 +23,7 @@ class CreateItemsTable extends Migration
             $table->string('slug', 100)->unique();
             $table->string('name', 100);
             $table->string('model', 100);
+            $table->date('release_date')->nullable();
             $table->string('color', 100);
             $table->string('desc', 255);
             $table->decimal('width', 5, 2)->unsigned();

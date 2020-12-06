@@ -1,9 +1,26 @@
+.item-summary-heading {
+	margin-bottom: 1.5rem;
+	padding-bottom: .5rem;
+	border-bottom: 4px double #ccc;
+	font-size: 3.5rem;
+	font-weight: 300;
+	line-height: 1.2;
+}
+
 .icons img {
 	width: 48px;
 	height: 48px;
 }
 
+.feature {
+	display: grid;
+	grid-gap: 1.5rem;
+	grid-template-rows: 1fr 1fr;
+}
 
+.feature .sentence {
+	grid-row: 2 / 3;
+}
 
 @media (min-width: 768px) {
 	.features .grid {
@@ -12,24 +29,29 @@
 	}
 
 	.feature {
-		display: grid;
+		grid-gap: 3rem;
 		grid-template-columns: 4fr 3fr;
 		grid-template-rows: 1fr;
-		align-items: start;
-		grid-gap: 3rem;
+		align-items: center;
 	}
 
 	.feature.-num-even {
 		grid-template-columns: 3fr 4fr;
 	}
 
-	.feature .sentense {
-		padding: 1rem 0;
+	.feature .sentence {
+		// padding: 1rem 0;
+		grid-row: 1 / 2;
 	}
 
-	.feature.-num-even .sentense {
+	.feature.-num-even .sentence {
 		grid-column: 2 / 3;
-		grid-row: 1;
+		// grid-row: 1;
+	}
+
+	.feature-heading {
+		margin-bottom: 1.5rem;
+		line-height: 1.24;
 	}
 }
 

@@ -22,11 +22,11 @@ class FeaturesTableSeeder extends Seeder
         foreach ($items as $item) {
             $faker2 = Faker::create('en_US');
 
-            for ($i = 0; $i < rand(2, 4); $i++) {
+            for ($i = 0; $i < rand(1, 6); $i++) {
                 Feature::create([
                     'code' => $item->code,
-                    'heading' => $faker2->unique()->sentence(5),
-                    'content' => $faker2->sentence(rand(32, 56)),
+                    'heading' => $faker2->unique()->sentence(rand(5, 7)),
+                    'content' => $faker2->sentence(rand(24, 48)),
                     'priority' => $i,
                     'is_public' => 1,
                 ]);

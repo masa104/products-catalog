@@ -1,2 +1,2 @@
-@media (min-width: 768px){.grid{grid-template-columns:repeat(2, 1fr)}.grid-item.-num-1{grid-column:1 / 3}.grid-item.-num-1 .card-link{display:grid;grid-template-columns:2fr 1fr}}
+@media (min-width: 768px){.grid{grid-template-columns:repeat(2, 1fr)}.grid-item.-num-1{grid-column:1 / 3}.grid-item.-num-1 .card-link{display:grid;grid-template-columns:2fr 1fr}.grid-item.-num-1 .card-body{justify-content:center}.grid-item.-num-1 .card-btn{margin-top:unset}}
 /*# sourceMappingURL=list.min.css.map */

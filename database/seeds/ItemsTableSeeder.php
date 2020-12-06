@@ -18,7 +18,7 @@ class ItemsTableSeeder extends Seeder
 
         $faker = Faker::create('en_US');
 
-        $cats = Category::where('parent', '<>', 0)->get();
+        $cats = Category::where('parent_id', '<>', 0)->get();
 
         foreach ($cats as $cat) {
             for ($i = 0; $i < rand(3, 9); $i++) {
@@ -30,6 +30,7 @@ class ItemsTableSeeder extends Seeder
                     'slug'      => $slug,
                     'name'      => $name,
                     'model'     => $faker->city,
+                    'release_date' => (new DateTime())->format('Y-m-d'),
                     'color'     => $faker->colorName,
                     'desc'      => $faker->sentence(16),
                     'width'     => $faker->numberBetween(100, 1000),

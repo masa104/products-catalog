@@ -25,7 +25,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('priority')->unsigned()->default(0);
             $table->boolean('is_public')->default(0)->index();
 
-            // $table->foreign('parent')->references('id')->on('categories');
+            // $table->foreign('id')->references('cat_id')->on('items');
         });
     }
 

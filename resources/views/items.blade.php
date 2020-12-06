@@ -9,7 +9,7 @@
 <section class="section">
 	<div class="container">
 		<div class="cover-img-box">
-			<img class="cover-img" src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
+			<img class="cover-img" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" />
 		</div>
 	</div>
 </section>
@@ -23,12 +23,12 @@
 				<article class="card grid-item">
 					<a class="card-link" href="{{ route('list', [$cat->parent->slug, $cat->slug, $item->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" src=" https://picsum.photos/id/{{ rand(100, 500) }}/500/250" alt="...">
+							<img class="card-img cover-img" src=" https://picsum.photos/id/{{ round(rand(1, 500)) }}/500/250" alt="{{ $item->name }}">
 						</div>
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $item->name }}</h1>
 							<p class="">{{ $item->desc }}</p>
-							<span class="btn btn-sm btn-primary">See Detail</span>
+							{{-- <span class="card-btn btn btn-sm btn-primary">See Detail</span> --}}
 						</div>
 					</a>
 				</article>

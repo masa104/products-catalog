@@ -17,6 +17,10 @@
 			display: grid;
 			grid-template-columns: 2fr 1fr;
 		}
+
+		.grid-item.-num-1 .card-body {
+			justify-content: center;
+		}
 	}
 
 }

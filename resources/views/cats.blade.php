@@ -39,12 +39,12 @@
 				<article class="card grid-item -num-{{ $loop->index + 1 }}">
 					<a class="card-link" href="{{ route('list', [$cat->slug, $child->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" src=" https://picsum.photos/id/{{ rand(10, 50) * ($child->id) }}/500/250" alt="...">
+							<img class="card-img cover-img" src=" https://picsum.photos/id/{{ round(rand(1, 600) ) }}/500/250" alt="{{ $child->name }}">
 						</div>
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $child->name }}</h1>
 							<p class="">{{ $child->desc }}</p>
-							<span class="btn btn-sm btn-primary">See All</span>
+							{{-- <span class="card-btn btn btn-sm btn-primary">See All</span> --}}
 						</div>
 					</a>
 				</article>

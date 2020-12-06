@@ -19,4 +19,9 @@ class Item extends Model
     {
         return $this->hasMany(Feature::class, 'code', 'code');
     }
+
+    public function getReleaseDateMonthDateAttribute()
+    {
+        return (new \DateTime($this->release_date))->format('m/j');
+    }
 }
