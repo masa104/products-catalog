@@ -35,12 +35,22 @@ class HomeController extends Controller
         }
         if ($lev2) {
             $cat   = Category::where('slug', $lev2)->firstOrFail();
-            $items = $cat->items;
+            $items = $cat->items()->paginate(3);
             return view('items', compact('cat', 'items'));
         }
 
         $cat      = Category::where('slug', $lev1)->firstOrFail();
         $children = $cat->children;
         return view('cats', compact('cat', 'children'));
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $items = Item::where('name', 'like', "%$keyword%")
+            ->orWhere('desc', 'like', "%$keyword%")
+            ->paginate(9);
+        $items->withPath('/search/?keyword' . $request->keyword);
+        return view('items', compact('items'));
     }
 }
