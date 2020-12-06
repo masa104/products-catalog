@@ -38,7 +38,7 @@
 				<article class="card grid-item">
 					<a class="card-link" href="{{ route('list', [$cat->slug]) }}">
 						<div class="cover-img-box">
-							<img loading="lazy" src="https://picsum.photos/id/{{ round(rand(1, 100)) }}/500/250" class="card-img cover-img" alt="{{ $cat->name }}">
+							<img src="https://picsum.photos/id/{{ round(rand(1, 100)) }}/500/250" class="card-img cover-img" alt="{{ $cat->name }}">
 						</div>
 						<div class="card-body">
 							<h1 class="h5 card-title mb-0">{{ $cat->name }}</h1>
@@ -58,7 +58,7 @@
 				<article class="card grid-item -num-{{ $loop->index % 5 + 1 }}">
 					<a class="card-link" href="{{ route('list', [$item->cat->parent->slug, $item->cat->slug, $item->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" loading="lazy" src="https://picsum.photos/id/{{ round(rand(1, 600)) }}/500/240" alt="{{ $item->name }}">
+							<img class="card-img cover-img" src="https://picsum.photos/id/{{ round(rand(1, 600)) }}/500/240" alt="{{ $item->name }}">
 						</div>
 						<div class="card-body">
 							<p class="mb-2"><small class="px-2 border border-danger text-danger">New</small></p>

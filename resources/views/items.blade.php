@@ -6,34 +6,24 @@
 
 @section('content')
 
-@if(request()->route()->getName() !== 'search')
-	<section class="section">
-		<div class="container">
-			<div class="cover-img-box">
-				<img class="cover-img" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" />
-			</div>
+<section class="section">
+	<div class="container">
+		<div class="cover-img-box">
+			<img class="cover-img" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" />
 		</div>
-	</section>
-@endif
+	</div>
+</section>
 
 
 <section class="section items">
 	<div class="container">
-		@if(request()->route()->getName() !== 'search')
-			<h1 class="section-heading">{{ $cat->name }}</h1>
-		@else
-			<h1 class="section-heading">Search Results</h1>
-			<p>We found {{ $items->count() }} items.</p>
-		@endif
-		<div class="my-4">
-			{{ $items->onEachSide(2)->links() }}
-		</div>
+		<h1 class="section-heading">{{ $cat->name }}</h1>
 		<div class="grid">
 			@foreach($items as $item)
 				<article class="card grid-item">
-					<a class="card-link" href="{{ route('list', [$item->cat->parent->slug, $item->cat->slug, $item->slug]) }}">
+					<a class="card-link" href="{{ route('list', [$cat->parent->slug, $cat->slug, $item->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" loading="lazy" src=" https://picsum.photos/id/{{ round(rand(1, 500)) }}/500/250" alt="{{ $item->name }}">
+							<img class="card-img cover-img" src=" https://picsum.photos/id/{{ round(rand(1, 500)) }}/500/250" alt="{{ $item->name }}">
 						</div>
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $item->name }}</h1>
@@ -43,6 +33,12 @@
 					</a>
 				</article>
 			@endforeach
+			@for($j = 0; $j < 8; $j++)
+				@php
+					$random=rand(100, 500) * $j;
+				@endphp
+
+			@endfor
 		</div>
 	</div>
 </section>

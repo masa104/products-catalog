@@ -60,7 +60,7 @@
 						<p>{{ $feature->content }}</p>
 					</div>
 					<div class="cover-img-box">
-						<img class="cover-img" loading="lazy" src="https://picsum.photos/id/{{ round(rand(1,600)) }}/600/400" alt="{{ $feature->heading }}">
+						<img class="cover-img" src="https://picsum.photos/id/{{ round(rand(1,600)) }}/600/400" alt="{{ $feature->heading }}">
 					</div>
 				</article>
 			@endforeach
