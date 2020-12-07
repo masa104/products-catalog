@@ -18,14 +18,14 @@ class CreateFeaturesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->bigIncrements('id');
-            $table->decimal('code', 13, 0)->index();
+            $table->integer('item_id')->length(13)->index();
             $table->string('heading', 100);
             $table->string('content', 500);
             $table->integer('priority')->unsigned()->default(0);
             $table->boolean('is_public')->default(0)->index();
 
-            $table->foreign('code')
-                ->references('code')
+            $table->foreign('item_id')
+                ->references('id')
                 ->on('items')
                 ->onDelete('cascade');
         });

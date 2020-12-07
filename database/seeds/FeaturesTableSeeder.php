@@ -24,10 +24,10 @@ class FeaturesTableSeeder extends Seeder
 
             for ($i = 0; $i < rand(1, 6); $i++) {
                 Feature::create([
-                    'code' => $item->code,
-                    'heading' => $faker2->unique()->sentence(rand(5, 7)),
-                    'content' => $faker2->sentence(rand(24, 48)),
-                    'priority' => $i,
+                    'item_id'   => $item->id,
+                    'heading'   => $faker2->unique()->sentence(rand(5, 7)),
+                    'content'   => $faker2->sentence(rand(24, 48)),
+                    'priority'  => $i,
                     'is_public' => 1,
                 ]);
             }

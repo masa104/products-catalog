@@ -25,21 +25,21 @@ class ItemsTableSeeder extends Seeder
                 $name = trim($faker->unique()->sentence(1), '.');
                 $slug = strtolower(str_replace(' ', '-', $name));
                 Item::create([
-                    'cat_id'    => $cat->id,
-                    'code'      => $faker->randomNumber(6),
-                    'slug'      => $slug,
-                    'name'      => $name,
-                    'model'     => $faker->city,
+                    'id'           => $faker->unique()->numberBetween(1000000000000, 9999999999999),
+                    'cat_id'       => $cat->id,
+                    'slug'         => $slug,
+                    'name'         => $name,
+                    'model'        => $faker->city,
                     'release_date' => (new DateTime())->format('Y-m-d'),
-                    'color'     => $faker->colorName,
-                    'desc'      => $faker->sentence(16),
-                    'width'     => $faker->numberBetween(100, 1000),
-                    'height'    => $faker->numberBetween(100, 1000),
-                    'depth'     => $faker->numberBetween(100, 1000),
-                    'weight'    => $faker->numberBetween(100, 1000),
-                    'material'  => implode(', ', explode(' ', trim($faker->unique()->sentence(rand(1, 4)), '.'))),
-                    'priority'  => $i,
-                    'is_public' => 1,
+                    'color'        => $faker->colorName,
+                    'desc'         => $faker->sentence(16),
+                    'width'        => $faker->numberBetween(100, 1000),
+                    'height'       => $faker->numberBetween(100, 1000),
+                    'depth'        => $faker->numberBetween(100, 1000),
+                    'weight'       => $faker->numberBetween(100, 1000),
+                    'material'     => implode(', ', explode(' ', trim($faker->unique()->sentence(rand(1, 4)), '.'))),
+                    'priority'     => $i,
+                    'is_public'    => 1,
                 ]);
             }
         }

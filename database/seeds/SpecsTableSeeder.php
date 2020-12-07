@@ -24,10 +24,10 @@ class SpecsTableSeeder extends Seeder
 
             for ($i = 0; $i < rand(1, 6); $i++) {
                 Spec::create([
-                    'code' => $item->code,
-                    'heading' => $faker->unique()->word(),
-                    'content' => $faker->unique()->word(),
-                    'priority' => $i,
+                    'item_id'   => $item->id,
+                    'heading'   => $faker->unique()->word(),
+                    'content'   => $faker->unique()->word(),
+                    'priority'  => $i,
                     'is_public' => 1,
                 ]);
             }

@@ -22,8 +22,8 @@ class IconsTableSeeder extends Seeder
             $name = trim($faker->unique()->sentence(1), '.');
             $slug = strtolower(str_replace(' ', '_', $name));
             Icon::create([
-                'slug' => $slug,
-                'name' => $name,
+                'slug'      => $slug,
+                'name'      => $name,
                 'is_public' => 1,
             ]);
         }

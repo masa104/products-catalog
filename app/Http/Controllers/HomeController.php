@@ -25,14 +25,19 @@ class HomeController extends Controller
      *
      * @param  string  $lev1
      * @param  string|null  $lev2
+     * @param  string|null  $lev3
      * @return \Illuminate\Http\Response
      */
     public function list($lev1,  $lev2 = null, $lev3 = null)
     {
         if ($lev3) {
             $item = Item::where('slug', $lev3)->firstOrFail();
+            $i = Item::find(1);
+            // dd($i->code);
+            dd($i->icons);
             return view('detail', compact('item'));
         }
+
         if ($lev2) {
             $cat   = Category::where('slug', $lev2)->firstOrFail();
             $items = $cat->items()->paginate(3);

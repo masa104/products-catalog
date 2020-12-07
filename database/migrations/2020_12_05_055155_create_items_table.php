@@ -17,9 +17,10 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->timestamps();
             $table->softDeletes();
-            $table->bigIncrements('id');
+            // $table->bigIncrements('id');
+            $table->integer('id')->length(13)->unique()->index();
             $table->bigInteger('cat_id')->index();
-            $table->decimal('code', 13, 0)->unique()->index();
+            // $table->decimal('code', 13, 0)->unique()->index();
             $table->string('slug', 100)->unique();
             $table->string('name', 100);
             $table->string('model', 100);

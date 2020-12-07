@@ -14,17 +14,17 @@ class CreateItemIconTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('item_icon', function (Blueprint $table) {
+        Schema::create('icon_item', function (Blueprint $table) {
             $table->timestamps();
             $table->softDeletes();
-            $table->decimal('code', 13, 0);
+            $table->integer('item_id')->length(13);
             $table->bigInteger('icon_id');
             $table->integer('priority')->default(0)->unsigned()->index();
 
-            $table->primary(['code', 'icon_id']);
+            $table->primary(['item_id', 'icon_id']);
 
-            $table->foreign('code')
-                ->references('code')
+            $table->foreign('item_id')
+                ->references('id')
                 ->on('items')
                 ->onDelete('cascade');
 
