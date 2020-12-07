@@ -1,3 +1,18 @@
+{{-- @if(Route::currentRouteName() === 'search') --}}
+{{-- $args = ['breadcrumbs' => Breadcrumbs::generate('search', request()->keyword) ]; --}}
+{{-- {{ Breadcrumbs::render('search', request()->keyword) }} --}}
+{{-- {{ Breadcrumbs::view('partials.breadcrumbs', 'search', request()->keyword) }} --}}
+{{-- @elseif(Route::currentRouteName() === 'list') --}}
+{{-- @if(isset($cat)) --}}
+{{-- $args = ['breadcrumbs' => Breadcrumbs::generate('hierarchy', $cat) ]; --}}
+{{-- {{ Breadcrumbs::render('hierarchy', $cat) }} --}}
+{{-- {{ Breadcrumbs::view('partials.breadcrumbs', 'hierarchy', $cat) }} --}}
+{{-- @else --}}
+{{-- $args = ['breadcrumbs' => Breadcrumbs::generate('hierarchy', $item->cat, $item) ]; --}}
+{{-- {{ Breadcrumbs::render('hierarchy', $item->cat, $item) }} --}}
+{{-- {{ Breadcrumbs::view('partials.breadcrumbs', 'hierarchy', $item->cat, $item) }} --}}
+{{-- @endif --}}
+{{-- @endif --}}
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -5,18 +20,39 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<title>商品情報デモ</title>
+	<title>
+		@if(Route::currentRouteName() === 'search')
+			{{ Breadcrumbs::view('partials.page_title', 'search', request()->keyword) }}
+		@elseif(Route::currentRouteName() === 'list')
+			@if(isset($cat))
+				{{ Breadcrumbs::view('partials.page_title', 'hierarchy', $cat) }}
+			@else
+				{{ Breadcrumbs::view('partials.page_title', 'hierarchy', $item->cat, $item) }}
+			@endif
+		@endif
+		商品情報デモ
+	</title>
+	<meta name="description" content="{{ $meta_desc ?? '商品情報デモ' }}">
+	<meta property="og:title" content="{{ $meta_title ?? '商品情報デモ' }}">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{{ request()->fullUrl() }}">
+	<meta property="og:image" content="https://www.irisohyama.co.jp/common/images/fb.png">
+	<meta property="og:site_name" content="商品情報デモ">
+	<meta property="og:description" content="{{ $meta_desc ?? '商品情報デモ' }}">
+	<meta property="og:locale" content="ja_JP">
+	<meta property="fb:app_id" content="">
 
-	<meta property="og:title" content="">
-	<meta property="og:type" content="">
-	<meta property="og:url" content="">
-	<meta property="og:image" content="">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="{{ $meta_title ?? '商品情報デモ' }}">
+	<meta name="twitter:description" content="{{ $meta_desc ?? '商品情報デモ' }}">
+	<meta name="twitter:image" content="https://www.irisohyama.co.jp/common/images/fb.png">
+	<meta name="twitter:url" content="{{ request()->fullUrl() }}">
 
+	<link rel="canonical" href="{{ request()->fullUrl() }}">
 	<link rel="apple-touch-icon" href="./icon.png">
-	<link rel="shortcut icon" href="./favicon.ico">
+	<link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cosmo/bootstrap.min.css">
-	{{-- <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
 	<link rel="stylesheet" href="{{ asset('/css/style.min.css') }}">
 	@yield('stylesheet')
@@ -49,12 +85,6 @@
 
 
 	@yield('script')
-	<script>
-		$(document).ready(function () {
-
-		});
-
-	</script>
 	<script src="{{ asset('/js/gotop.js') }}"></script>
 </body>
 

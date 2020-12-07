@@ -98,6 +98,8 @@ var mySwiper = new Swiper('.swiper-container', {
   loop: true,
   autoHeight: true,
   calculateHeight: true,
+  preloadImages: false,
+  lazy: true,
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',

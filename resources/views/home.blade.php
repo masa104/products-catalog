@@ -13,9 +13,18 @@
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+				<div class="swiper-slide">
+					<img class="swiper-lazy" data-src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-lazy" data-src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
+					<div class="swiper-lazy-preloader"></div>
+				</div>
+				<div class="swiper-slide">
+					<img class="swiper-lazy" data-src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" />
+					<div class="swiper-lazy-preloader"></div>
+				</div>
 				...
 			</div>
 			<!-- If we need pagination -->

@@ -76,23 +76,23 @@
 		<div class="specs table-responsive">
 			<table class="table">
 				<tr>
-					<th class="border-top-0" scope="row">Color</th>
+					<th class="w-25" class="border-top-0" scope="row">Color</th>
 					<td class="border-top-0">{{ $item->color }}</td>
 				</tr>
 				<tr>
-					<th scope="row">Width</th>
+					<th class="w-25" scope="row">Width</th>
 					<td>{{ $item->width }}mm</td>
 				</tr>
 				<tr>
-					<th scope="row">Height</th>
+					<th class="w-25" scope="row">Height</th>
 					<td>{{ $item->height }}mm</td>
 				</tr>
 				<tr>
-					<th scope="row">Depth</th>
+					<th class="w-25" scope="row">Depth</th>
 					<td>{{ $item->depth }}mm</td>
 				</tr>
 				<tr>
-					<th scope="row">Weight</th>
+					<th class="w-25" scope="row">Weight</th>
 					<td>{{ $item->weight }}g</td>
 				</tr>
 				@foreach($item->specs as $spec)

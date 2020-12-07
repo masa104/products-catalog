@@ -23,7 +23,7 @@
 			<h1 class="section-heading">{{ $cat->name }}</h1>
 		@else
 			<h1 class="section-heading">Search Results</h1>
-			<p>We found {{ $items->count() }} items.</p>
+			<p>{{ $items->count() }} items found.</p>
 		@endif
 		<div class="my-4">
 			{{ $items->onEachSide(2)->links() }}
