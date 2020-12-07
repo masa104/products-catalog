@@ -30,12 +30,15 @@ class Item extends Model
 
     public function icons()
     {
-        return $this->belongsToMany(
-            self::class,
-            'icon_item',
-            'item_id',
-            'icon_id'
-        )->using(ItemIcon::class);
+        return $this->belongsToMany(Icon::class)
+            ->withPivot('priority')
+            ->orderBy('priority', 'asc');
+        // return $this->belongsToMany(
+        //     self::class,
+        //     'icon_item',
+        //     'item_id',
+        //     'icon_id'
+        // )->using(ItemIcon::class);
     }
 
     public function getReleaseDateMonthDateAttribute()

@@ -32,9 +32,6 @@ class HomeController extends Controller
     {
         if ($lev3) {
             $item = Item::where('slug', $lev3)->firstOrFail();
-            $i = Item::find(1);
-            // dd($i->code);
-            dd($i->icons);
             return view('detail', compact('item'));
         }
 

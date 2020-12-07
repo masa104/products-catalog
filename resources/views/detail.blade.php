@@ -16,8 +16,10 @@
 			<div class="grid">
 				<p class="">{{ $item->desc }}</p>
 				<div class="icons">
+					@foreach($item->icons as $icon)
+						<img loading="lazy" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/64/64" alt="{{ $icon->name }}">
+					@endforeach
 					@for($i = 0; $i < 5; $i++)
-						<img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/64/64" alt="...">
 					@endfor
 				</div>
 			</div>
@@ -109,13 +111,13 @@
 		<h1 class="section-heading">Share</h1>
 		<div class="social-btns text-center">
 			<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow" target="_blank">
-				<img src="{{ asset('/images/twitter.svg') }}" alt="Twitter"> Twitter
+				<img loading="lazy" src="{{ asset('/images/twitter.svg') }}" alt="Twitter"> Twitter
 			</a>
 			<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow" target="_blank">
-				<img src="{{ asset('/images/facebook.svg') }}" alt="Facebook"> Facebook
+				<img loading="lazy" src="{{ asset('/images/facebook.svg') }}" alt="Facebook"> Facebook
 			</a>
 			<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow" rel="nofollow" target="_blank">
-				<img src="{{ asset('/images/pocket.svg') }}" alt="Pocket"> Pocket
+				<img loading="lazy" src="{{ asset('/images/pocket.svg') }}" alt="Pocket"> Pocket
 			</a>
 		</div>
 	</div>

@@ -10,7 +10,7 @@
 	<section class="section">
 		<div class="container">
 			<div class="cover-img-box">
-				<img class="cover-img" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" />
+				<img class="cover-img" loading="lazy" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" />
 			</div>
 		</div>
 	</section>
