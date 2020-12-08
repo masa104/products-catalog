@@ -6,11 +6,14 @@
 
 @section('content')
 
-@if(request()->route()->getName() !== 'search')
+@if(Route::currentRouteName() === 'list')
 	<section class="section">
 		<div class="container">
-			<div class="cover-img-box">
-				<img class="cover-img" loading="lazy" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" />
+			<div class="cover-img-box hero-img">
+				<picture>
+					<source media="(min-width: 768px)" srcset="{{ asset('/images/hero/home_1200x400.jpg') }}">
+					<img class="cover-img" loading="lazy" src="{{ asset('/images/hero/home_1200x400_sp.jpg') }}" alt="" />
+				</picture>
 			</div>
 		</div>
 	</section>
@@ -19,15 +22,24 @@
 
 <section class="section items">
 	<div class="container">
-		@if(request()->route()->getName() !== 'search')
+		@if(Route::currentRouteName() === 'list')
 			<h1 class="section-heading">{{ $cat->name }}</h1>
 		@else
 			<h1 class="section-heading">Search Results</h1>
-			<p>{{ $items->count() }} items found.</p>
 		@endif
+
+		@if(!$items->total())
+			<p>Sorry, Not found.</p>
+		@else
+			<p>
+				Displaying <span class="font-weight-bold text-primary">{{ $items->firstItem() }} - {{ $items->lastItem() }}</span> of <span class="font-weight-bold text-primary">{{ $items->total() }}</span> items.
+			</p>
+		@endif
+
 		<div class="my-4">
 			{{ $items->onEachSide(2)->links() }}
 		</div>
+
 		<div class="grid">
 			@foreach($items as $item)
 				<article class="card grid-item">
@@ -46,5 +58,9 @@
 	</div>
 </section>
 
+
+@endsection
+
+@section('script')
 
 @endsection

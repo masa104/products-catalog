@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-// use App\Models\Item;
-
 use Illuminate\Database\Eloquent\Model;
+
+use App\Traits\IsPublic;
+use App\Traits\Priority;
 
 class Feature extends Model
 {
-    // public function item()
-    // {
-    //     return $this->belongsTo(Item::class, 'code', 'code');
-    // }
+    use IsPublic;
+    use Priority;
 }

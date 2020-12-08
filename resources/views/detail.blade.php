@@ -24,29 +24,33 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="cover-img-box hero-img">
+			<img class="cover-img" loading="lazy" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1200/630" alt="" />
+		</div>
 	</div>
 </section>
 
-<section class="section">
+{{-- <section class="section">
 	<div class="container">
 		<div class="swiper-container">
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
 				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
-			</div>
+<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
+<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
+</div>
 
-			<div class="swiper-pagination"></div>
+<div class="swiper-pagination"></div>
 
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
 
-		</div>
+</div>
 
-	</div>
-</section>
+</div>
+</section> --}}
 
 <section class="section features">
 	<div class="container">
@@ -76,7 +80,7 @@
 		<div class="specs table-responsive">
 			<table class="table">
 				<tr>
-					<th class="w-25" class="border-top-0" scope="row">Color</th>
+					<th class="w-25 border-top-0" scope="row">Color</th>
 					<td class="border-top-0">{{ $item->color }}</td>
 				</tr>
 				<tr>
@@ -110,15 +114,26 @@
 	<div class="container">
 		<h1 class="section-heading">Share</h1>
 		<div class="social-btns text-center">
-			<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow" target="_blank">
-				<img loading="lazy" src="{{ asset('/images/twitter.svg') }}" alt="Twitter"> Twitter
-			</a>
-			<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow" target="_blank">
-				<img loading="lazy" src="{{ asset('/images/facebook.svg') }}" alt="Facebook"> Facebook
-			</a>
-			<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow" rel="nofollow" target="_blank">
-				<img loading="lazy" src="{{ asset('/images/pocket.svg') }}" alt="Pocket"> Pocket
-			</a>
+			<ul>
+				<li>
+					<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow" target="_blank">
+						<img loading="lazy" src="{{ asset('/images/twitter.svg') }}" alt="Twitter">
+						<span>Twitter</span>
+					</a>
+				</li>
+				<li>
+					<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow" target="_blank">
+						<img loading="lazy" src="{{ asset('/images/facebook.svg') }}" alt="Facebook">
+						<span>Facebook</span>
+					</a>
+				</li>
+				<li>
+					<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow" rel="nofollow" target="_blank">
+						<img loading="lazy" src="{{ asset('/images/pocket.svg') }}" alt="Pocket">
+						<span>Pocket</span>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </section>

@@ -9,27 +9,38 @@
 
 @section('content')
 
-<section class="section">
+{{-- <section class="section">
 	<div class="container">
 		<div class="swiper-container">
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
 				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-				...
-			</div>
-			<!-- If we need pagination -->
-			<div class="swiper-pagination"></div>
+<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
+...
+</div>
+<!-- If we need pagination -->
+<div class="swiper-pagination"></div>
 
-			<!-- If we need navigation buttons -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+<!-- If we need navigation buttons -->
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
 
+</div>
+</div>
+</section> --}}
+<section class="section">
+	<div class="container">
+		<div class="cover-img-box hero-img">
+			<picture>
+				<source media="(min-width: 768px)" srcset="{{ asset('/images/hero/home_1200x400.jpg') }}">
+				<img class="cover-img" loading="lazy" src="{{ asset('/images/hero/home_1200x400_sp.jpg') }}" alt="" />
+			</picture>
 		</div>
 	</div>
 </section>
+
 
 <section class="section category-list">
 	<div class="container">

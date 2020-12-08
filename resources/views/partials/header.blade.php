@@ -6,19 +6,8 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
-				{{-- <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul> --}}
 				<form action="{{ route('search') }}" class="form-inline ml-auto mt-2 mt-md-0">
-					<input class="form-control mr-sm-2" type="search" name="keyword" value="{{ request()->get('keyword', '') }}" placeholder="Search Items..." aria-label="Search Items...">
+					<input class="form-control mr-sm-2" type="search" name="keyword" value="{{ request()->get('keyword', '') }}" placeholder="Search Items..." aria-label="Search Items..." required>
 					<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>

@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-// use App\Models\Item;
+
+use App\Traits\Priority;
+use App\Traits\IsPublic;
 
 class Spec extends Model
 {
-    // public function item()
-    // {
-    //     return $this->belongsTo(Item::class, 'code', 'code');
-    // }
+    use IsPublic;
+    use Priority;
 }

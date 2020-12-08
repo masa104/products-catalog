@@ -1,22 +1,8 @@
-{{-- @if(Route::currentRouteName() === 'search') --}}
-{{-- $args = ['breadcrumbs' => Breadcrumbs::generate('search', request()->keyword) ]; --}}
-{{-- {{ Breadcrumbs::render('search', request()->keyword) }} --}}
-{{-- {{ Breadcrumbs::view('partials.breadcrumbs', 'search', request()->keyword) }} --}}
-{{-- @elseif(Route::currentRouteName() === 'list') --}}
-{{-- @if(isset($cat)) --}}
-{{-- $args = ['breadcrumbs' => Breadcrumbs::generate('hierarchy', $cat) ]; --}}
-{{-- {{ Breadcrumbs::render('hierarchy', $cat) }} --}}
-{{-- {{ Breadcrumbs::view('partials.breadcrumbs', 'hierarchy', $cat) }} --}}
-{{-- @else --}}
-{{-- $args = ['breadcrumbs' => Breadcrumbs::generate('hierarchy', $item->cat, $item) ]; --}}
-{{-- {{ Breadcrumbs::render('hierarchy', $item->cat, $item) }} --}}
-{{-- {{ Breadcrumbs::view('partials.breadcrumbs', 'hierarchy', $item->cat, $item) }} --}}
-{{-- @endif --}}
-{{-- @endif --}}
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
+	<meta name="robots" content="noindex, noindex" />
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,33 +44,57 @@
 	@yield('stylesheet')
 </head>
 
-<body class="d-flex flex-column h-100">
+<body id="js-page-top">
 
 	@include('partials/header')
 
 	<!-- Begin page content -->
-	<main role="main" class="flex-shrink-0" style="margin-bottom: 7rem;">
-
-
+	<main role="main" class="main">
 		@yield('content')
-
 	</main>
 	<!-- End page content -->
 
 	<!-- Fixed footer -->
-	<footer class="footer py-3 bg-dark">
+	<footer class="footer bg-dark">
 		<div class="container text-center">
-			<span class="text-white">Created By Masatoshi Kokaji &copy; 2020</span>
+			<span class="text-white">Created By Masatoshi Kokaji<br>&copy; 2020</span>
 		</div>
 	</footer>
-	<a id="gotop" href="#">▲</a>
+
+	<span id="gotop" href="#js-page-top">▲</span>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
-
 	@yield('script')
+	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+	<script>
+		gsap.registerPlugin(ScrollTrigger);
+
+		const tl = gsap.timeline({
+			defaults: {
+				autoAlpha: 1,
+			}
+		})
+		tl.from('.card', {
+			duration: 1,
+			stagger: 0.2,
+			autoAlpha: 0,
+			y: 150
+		})
+		gsap.utils.toArray('.section').forEach(section => {
+			ScrollTrigger.create({
+				// start: "top top",
+				// end: "+=500",
+				markers: true,
+				trigger: section,
+				animation: tl
+			})
+		})
+
+	</script>
 	<script src="{{ asset('/js/gotop.js') }}"></script>
 </body>
 

@@ -15,8 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cats  = Category::where('parent_id', 0)->get();
-        $items = Item::take(10)->orderBy('priority', 'asc')->get();
+        $cats  = Category::rootCats()->get();
+        $items = Item::newArrivals()->get();
         return view('home', compact('cats', 'items'));
     }
 
@@ -31,7 +31,8 @@ class HomeController extends Controller
     public function list($lev1,  $lev2 = null, $lev3 = null)
     {
         if ($lev3) {
-            $item = Item::where('slug', $lev3)->firstOrFail();
+            $item = Item::bySlug($lev3)->firstOrFail();
+
             return view('detail', compact('item'))
                 ->with([
                     'meta_title' => $item->name,
@@ -40,9 +41,9 @@ class HomeController extends Controller
         }
 
         if ($lev2) {
-            $cat   = Category::where('slug', $lev2)->firstOrFail();
+            $cat   = Category::bySlug($lev2)->firstOrFail();
             $items = $cat->items()->paginate(3);
-            // return view('items', compact('cat'));
+
             return view('items', compact('cat', 'items'))
                 ->with([
                     'meta_title' => $cat->name,
@@ -50,7 +51,7 @@ class HomeController extends Controller
                 ]);
         }
 
-        $cat = Category::where('slug', $lev1)->firstOrFail();
+        $cat = Category::bySlug($lev1)->firstOrFail();
         return view('cats', compact('cat'))
             ->with([
                 'meta_title' => $cat->name,
@@ -60,12 +61,10 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $keyword = $request->keyword;
-        $items   = Item::where('name', 'like', "%$keyword%")
-            ->orWhere('desc', 'like', "%$keyword%")
-            ->orWhere('id', 'like', "%$keyword%")
-            ->paginate(9);
-        $items->withPath('/search/?keyword=' . $request->keyword);
+        $items = Item::searchResults($request->keyword)->paginate(9);
+
+        $items->withPath('/search/?keyword={$request->keyword}');
+
         return view('items', compact('items'));
     }
 }
