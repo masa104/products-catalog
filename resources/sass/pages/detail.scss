@@ -71,10 +71,7 @@
 		width: 100%;
 		height: 100%;
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-		// box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-		// 	rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 		transform: rotate(5deg);
-		/* 回転させる */
 		background: #fff;
 		z-index: -1;
 	}
@@ -107,7 +104,6 @@
 	display: block;
 	transition: all .3s ease;
 	background-color: #fff;
-	// font-size: .85rem;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
 	&:hover {
@@ -156,7 +152,6 @@
 	}
 
 	.social-btns a {
-		// width: 180px;
 		font-size: 1rem;
 	}
 

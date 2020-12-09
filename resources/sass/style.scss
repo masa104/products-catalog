@@ -43,14 +43,6 @@ body {
 	margin-bottom: 2rem;
 }
 
-// .section:first-child {
-// 	padding-top: 0;
-// }
-
-// .breadcrumbs {
-// 	margin-bottom: 3rem;
-// }
-
 .breadcrumb {
 	margin-bottom: 0;
 }
@@ -83,17 +75,11 @@ body {
 		rgba(0, 0, 0, 0.09) 0px 8px 4px,
 		rgba(0, 0, 0, 0.09) 0px 16px 8px,
 		rgba(0, 0, 0, 0.09) 0px 32px 16px;
-	// width: 100%;
-	// height: 375px;
-	// box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-	// 	rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
 
 }
 
-.swiper-slide img {
-	// max-width: 100%;
-	// object-fit: cover;
-}
+.swiper-slide img {}
 
 .swiper-pagination-bullet {
 	// background-color: #ccc !important;
@@ -147,8 +133,6 @@ body {
 .card:hover {
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
 		rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-	// background-clip: border-box;
-	// border: 1px solid rgba(0, 0, 0, .12);
 }
 
 .card-link {
@@ -182,8 +166,6 @@ body {
 	width: fit-content;
 }
 
-
-
 .cover-img {
 	display: block;
 	width: 100%;
@@ -196,8 +178,6 @@ body {
 	cursor: pointer;
 }
 
-
-
 #gotop.show {
 	display: inline-block;
 	position: fixed;
@@ -205,8 +185,8 @@ body {
 	bottom: .75rem;
 	width: 32px;
 	height: 32px;
-	// border: 1px solid rgba(0, 0, 0, 1);
 	background: rgba(0, 0, 0, 1);
+	font-size: .85rem;
 	color: #fff;
 	text-align: center;
 	line-height: 32px;
@@ -219,7 +199,6 @@ body {
 #gotop.show:hover {
 	background: #fff;
 	color: rgba(0, 0, 0, 1);
-	// border-color: rgba(0, 0, 0, .3);
 }
 
 @media (min-width: 768px) {

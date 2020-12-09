@@ -88,7 +88,7 @@
 			ScrollTrigger.create({
 				// start: "top top",
 				// end: "+=500",
-				markers: true,
+				// markers: true,
 				trigger: section,
 				animation: tl
 			})

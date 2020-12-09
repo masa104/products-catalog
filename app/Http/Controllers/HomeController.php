@@ -63,7 +63,7 @@ class HomeController extends Controller
     {
         $items = Item::searchResults($request->keyword)->paginate(9);
 
-        $items->withPath('/search/?keyword={$request->keyword}');
+        $items->withPath("/search/?keyword={$request->keyword}");
 
         return view('items', compact('items'));
     }
