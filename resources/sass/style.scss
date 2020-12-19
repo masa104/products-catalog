@@ -29,6 +29,7 @@ body {
 .section {
 	padding-top: 3rem;
 	padding-bottom: 3rem;
+	width: 100%;
 }
 
 .section-heading {
@@ -49,6 +50,11 @@ body {
 }
 
 .breadcrumb a {
+	color: #fff;
+	font-weight: 600;
+}
+
+.breadcrumb .active {
 	color: #fff;
 }
 
@@ -121,10 +127,10 @@ body {
 
 @media (min-width: 992px) {
 	.layered-text {
-		top: 24%;
+		top: 36%;
 		left: 50%;
-		transform: translate(-50%, -24%);
-		width: 42%;
+		transform: translate(-50%, -36%);
+		width: 48%;
 		padding: 3.2rem;
 	}
 

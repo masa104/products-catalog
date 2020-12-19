@@ -12,12 +12,16 @@
 	<div class="container">
 		<div class="outline">
 			<h2 class="h4 mb-1 text-black-50">{{ $item->cat->name }}</h2>
-			<h1 class="item-summary-heading">{{ $item->name }} <span class="h3">{{ $item->model }}</span></h1>
+			<h1 class="item-summary-heading">
+				{{ $item->name }}
+				<span class="h3 d-md-inline d-block">{{ $item->model }}</span>
+			</h1>
+
 			<div class="grid">
 				<p class="">{{ $item->desc }}</p>
 				<div class="icons">
 					@foreach($item->icons as $icon)
-						<img loading="lazy" src="{{ asset('/images/icons/' . $icon->slug . '.jpg') }}" alt="{{ $icon->name }}" title="{{ $icon->name }}">
+						<img loading="lazy" src="{{ asset('/images/icons/' . $icon->slug . '.jpg') }}" alt="{{ $icon->name }}" title="{{ $icon->name }}" width="64" height="64">
 					@endforeach
 				</div>
 			</div>
@@ -28,27 +32,6 @@
 		</div>
 	</div>
 </section>
-
-{{-- <section class="section">
-	<div class="container">
-		<div class="swiper-container">
-			<!-- Additional required wrapper -->
-			<div class="swiper-wrapper">
-				<!-- Slides -->
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
-<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
-<div class="swiper-slide"><img src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1920/400" alt="" /></div>
-</div>
-
-<div class="swiper-pagination"></div>
-
-<div class="swiper-button-prev"></div>
-<div class="swiper-button-next"></div>
-
-</div>
-
-</div>
-</section> --}}
 
 <section class="section features">
 	<div class="container">
@@ -64,7 +47,7 @@
 						<p>{{ $feature->content }}</p>
 					</div>
 					<div class="cover-img-box">
-						<img class="cover-img" loading="lazy" src="{{ asset('/images/items/' . $item->slug . '/feature_' . $loop->iteration . '.jpg') }}" alt="{{ $feature->heading }}">
+						<img loading="lazy" class="cover-img" src="{{ asset('/images/items/' . $item->slug . '/feature_' . $loop->iteration . '.jpg') }}" alt="{{ $feature->heading }}" width="600" height="400">
 					</div>
 				</article>
 			@endforeach
@@ -115,19 +98,19 @@
 			<ul>
 				<li>
 					<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow" target="_blank">
-						<img loading="lazy" src="{{ asset('/images/twitter.svg') }}" alt="Twitter">
+						<img loading="lazy" src="{{ asset('/images/twitter.svg') }}" alt="Twitter" width="32" height="32">
 						<span>Twitter</span>
 					</a>
 				</li>
 				<li>
 					<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow" target="_blank">
-						<img loading="lazy" src="{{ asset('/images/facebook.svg') }}" alt="Facebook">
+						<img loading="lazy" src="{{ asset('/images/facebook.svg') }}" alt="Facebook" width="32" height="32">
 						<span>Facebook</span>
 					</a>
 				</li>
 				<li>
 					<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow" rel="nofollow" target="_blank">
-						<img loading="lazy" src="{{ asset('/images/pocket.svg') }}" alt="Pocket">
+						<img loading="lazy" src="{{ asset('/images/pocket.svg') }}" alt="Pocket" width="32" height="32">
 						<span>Pocket</span>
 					</a>
 				</li>
@@ -135,11 +118,42 @@
 		</div>
 	</div>
 </section>
-
-
 @endsection
 
 @section('script')
-<script src="//unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="{{ asset('/js/swiper.js') }}"></script>
+<script>
+	const heroTl = gsap.timeline({
+		defaults: {
+			autoAlpha: 1,
+			duration: 1
+		}
+	});
+	const heroAnime = {
+		autoAlpha: 0,
+		y: 150
+	}
+	heroTl.from(['.outline'], heroAnime)
+	heroTl.from(['.hero-img'], heroAnime)
+
+	gsap.registerPlugin(ScrollTrigger);
+	const features = gsap.utils.toArray('.feature');
+	features.forEach((el, i) => {
+		gsap.set(el, {
+			autoAlpha: 0,
+			ease: 'power2.ease',
+		})
+		gsap.to(el, {
+			autoAlpha: 1,
+			duration: 1,
+			scrollTrigger: {
+				trigger: el,
+				start: 'top-=100 top+=150',
+				end: 'top top+=150',
+				scrub: (features.length - i) * 0.2,
+				toggleActions: 'play none none reverse'
+			},
+		});
+	});
+
+</script>
 @endsection

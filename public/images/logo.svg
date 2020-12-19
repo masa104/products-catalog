@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="133.125" height="33" viewBox="0 0 133.125 33">
+  <g id="logo-group" transform="translate(-376.875 -294)">
+    <text id="M._K." data-name="M. K." transform="translate(428 323)" fill="#fff" font-size="33" font-family="HiraginoSans-W3, Hiragino Sans"><tspan x="0" y="0">M. K.</tspan></text>
+    <g id="code-slash-outline" transform="translate(375.75 290.25)">
+      <path id="path_blacket_left" d="M11.25,31.375l-9-10.625,9-10.625" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+      <path id="path_blacket_right" d="M24.75,31.375l9-10.625-9-10.625" transform="translate(7.7)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+      <path id="path_slash" d="M21.375,6.75l-6.75,28" transform="translate(3.85 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+    </g>
+  </g>
+</svg>

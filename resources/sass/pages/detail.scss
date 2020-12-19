@@ -16,6 +16,11 @@
 	height: 48px;
 }
 
+.hero-img {
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+		rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
 .feature {
 	display: grid;
 	grid-gap: 1.5rem;

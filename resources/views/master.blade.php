@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-	<meta name="robots" content="noindex, noindex" />
+	<!-- <meta name="robots" content="noindex, noindex" /> -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +16,22 @@
 				{{ Breadcrumbs::view('partials.page_title', 'hierarchy', $item->cat, $item) }}
 			@endif
 		@endif
-		商品情報デモ
+		{{ config('app.name') }}
 	</title>
-	<meta name="description" content="{{ $meta_desc ?? '商品情報デモ' }}">
-	<meta property="og:title" content="{{ $meta_title ?? '商品情報デモ' }}">
+	<meta name="description" content="{{ $meta_desc ?? config('app.name') }}">
+	<meta property="og:title" content="{{ $meta_title ?? config('app.name') }}">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ request()->fullUrl() }}">
 	<meta property="og:image" content="https://www.irisohyama.co.jp/common/images/fb.png">
-	<meta property="og:site_name" content="商品情報デモ">
-	<meta property="og:description" content="{{ $meta_desc ?? '商品情報デモ' }}">
+	<meta property="og:site_name" content={{ config('app.name') }}>
+	<meta property="og:description" content="{{ $meta_desc ?? config('app.name') }}">
 	<meta property="og:locale" content="ja_JP">
 	<meta property="fb:app_id" content="">
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="">
-	<meta name="twitter:title" content="{{ $meta_title ?? '商品情報デモ' }}">
-	<meta name="twitter:description" content="{{ $meta_desc ?? '商品情報デモ' }}">
+	<meta name="twitter:title" content="{{ $meta_title ?? config('app.name') }}">
+	<meta name="twitter:description" content="{{ $meta_desc ?? config('app.name') }}">
 	<meta name="twitter:image" content="https://www.irisohyama.co.jp/common/images/fb.png">
 	<meta name="twitter:url" content="{{ request()->fullUrl() }}">
 
@@ -57,7 +57,7 @@
 	<!-- Fixed footer -->
 	<footer class="footer bg-dark">
 		<div class="container text-center">
-			<span class="text-white">Created By M.K.<br>&copy; 2020</span>
+			<span class="text-white">&copy; 2020 Created By M.K.</span>
 		</div>
 	</footer>
 

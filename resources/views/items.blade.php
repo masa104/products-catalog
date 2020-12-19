@@ -10,8 +10,8 @@
 	<section class="section hero py-0">
 		<div class="cover-img-box hero-img layered-hero">
 			<picture>
-				<source media="(min-width: 768px)" srcset="{{ asset('/images/cats/' .$cat->slug . '/hero.jpg') }}">
-				<img class="cover-img layered-image" loading="lazy" src="{{ asset('/images/cats/' .$cat->slug . '/main.jpg') }}" alt="{{ $cat->name }}" />
+				<source loading="lazy" media="(min-width: 768px)" srcset="{{ asset('/images/cats/' .$cat->slug . '/hero.jpg') }}" width="1920" height="1080">
+				<img loading="lazy" class="cover-img layered-image" src="{{ asset('/images/cats/' .$cat->slug . '/main.jpg') }}" alt="{{ $cat->name }}" width="600" height="315">
 			</picture>
 			<div class="layered-text">
 				<h1 class="layered-title">{{ $cat->name }}</h1>
@@ -20,17 +20,6 @@
 			</div>
 		</div>
 	</section>
-
-	{{-- <section class="section">
-		<div class="container">
-			<div class="cover-img-box hero-img">
-				<picture>
-					<source media="(min-width: 768px)" srcset="{{ asset('/images/cats/' .$cat->slug . '/hero.jpg') }}">
-	<img class="cover-img" loading="lazy" src="{{ asset('/images/cats/' .$cat->slug . '/main.jpg') }}" alt="" />
-	</picture>
-	</div>
-	</div>
-	</section> --}}
 @endif
 
 
@@ -59,7 +48,7 @@
 				<article class="card grid-item">
 					<a class="card-link" href="{{ route('list', [$item->cat->parent->slug, $item->cat->slug, $item->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" loading="lazy" src="{{ asset('/images/items/' . $item->slug . '/main.jpg' ) }}" alt="{{ $item->name }}">
+							<img loading="lazy" class="card-img cover-img" src="{{ asset('/images/items/' . $item->slug . '/main.jpg' ) }}" alt="{{ $item->name }}" width="600" height="315">
 						</div>
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $item->name }}</h1>
