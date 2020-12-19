@@ -81,50 +81,69 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/hero_anime.js":
+/***/ "./resources/js/card_anime.js":
 /*!************************************!*\
-  !*** ./resources/js/hero_anime.js ***!
+  !*** ./resources/js/card_anime.js ***!
   \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+ // gsap.registerPlugin(ScrollTrigger);
+// const cardTl = gsap.timeline({
+//   defaults: {
+//     autoAlpha: 1,
+//   }
+// })
+// cardTl.from('.card', {
+//   duration: 1,
+//   stagger: 0.1,
+//   autoAlpha: 0,
+//   y: 150
+// })
+// gsap.utils.toArray('.section').forEach(section => {
+//   ScrollTrigger.create({
+//     trigger: section,
+//     animation: cardTl
+//   })
+// })
 
-
-var heroTl = gsap.timeline({
-  defaults: {
-    duration: .7,
-    ease: 'power3.out'
-  }
-});
-heroTl.from('.layered-image', {
-  scale: 1.3,
-  transformOrigin: '50% 50%',
-  filter: 'grayscale(100%)',
-  delay: .3
-});
-gsap.utils.toArray(['.layered-text', '.layered-title', '.layered-desc', '.layered-button']).forEach(function (elm) {
-  heroTl.from(elm, {
-    autoAlpha: 0,
-    y: 150
+gsap.registerPlugin(ScrollTrigger);
+var defaultAnime = {
+  autoAlpha: 0,
+  ease: 'power2.ease',
+  y: 150
+};
+gsap.utils.toArray('.scroll-trigger').forEach(function (trigger, i) {
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function (card) {
+    gsap.set(card, defaultAnime);
+    gsap.to(card, {
+      autoAlpha: 1,
+      y: 0,
+      scrollTrigger: {
+        trigger: card,
+        toggleActions: 'play none none reverse'
+      }
+    });
   });
 });
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************************!*\
-  !*** multi ./resources/js/hero_anime.js ***!
+  !*** multi ./resources/js/card_anime.js ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/products-catalog/resources/js/hero_anime.js */"./resources/js/hero_anime.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/products-catalog/resources/js/card_anime.js */"./resources/js/card_anime.js");
 
 
 /***/ })

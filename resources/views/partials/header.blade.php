@@ -1,5 +1,5 @@
 <header class="">
-	<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000">
+	<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #222">
 		<div class="container">
 			<a class="navbar-brand font-weight-bold" href="/">
 				<img src="{{ asset('/images/logo.svg') }}" alt="{{ config('app.name') }}" width="133" height="33">

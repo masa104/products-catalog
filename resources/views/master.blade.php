@@ -71,28 +71,6 @@
 
 	@yield('script')
 
-	<script>
-		gsap.registerPlugin(ScrollTrigger);
-
-		const tl = gsap.timeline({
-			defaults: {
-				autoAlpha: 1,
-			}
-		})
-		tl.from('.card', {
-			duration: 1,
-			stagger: 0.1,
-			autoAlpha: 0,
-			y: 150
-		})
-		gsap.utils.toArray('.section').forEach(section => {
-			ScrollTrigger.create({
-				trigger: section,
-				animation: tl
-			})
-		})
-
-	</script>
 	<script src="{{ asset('/js/gotop.js') }}"></script>
 </body>
 

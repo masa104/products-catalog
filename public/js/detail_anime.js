@@ -81,50 +81,60 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/hero_anime.js":
-/*!************************************!*\
-  !*** ./resources/js/hero_anime.js ***!
-  \************************************/
+/***/ "./resources/js/detail_anime.js":
+/*!**************************************!*\
+  !*** ./resources/js/detail_anime.js ***!
+  \**************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/***/ (function(module, exports) {
 
 var heroTl = gsap.timeline({
   defaults: {
-    duration: .7,
-    ease: 'power3.out'
+    autoAlpha: 1,
+    duration: 1
   }
 });
-heroTl.from('.layered-image', {
-  scale: 1.3,
-  transformOrigin: '50% 50%',
-  filter: 'grayscale(100%)',
-  delay: .3
-});
-gsap.utils.toArray(['.layered-text', '.layered-title', '.layered-desc', '.layered-button']).forEach(function (elm) {
-  heroTl.from(elm, {
+var heroAnime = {
+  autoAlpha: 0,
+  y: 150
+};
+heroTl.from(['.outline'], heroAnime);
+heroTl.from(['.hero-img'], heroAnime);
+gsap.registerPlugin(ScrollTrigger);
+var features = gsap.utils.toArray('.feature');
+features.forEach(function (el, i) {
+  gsap.set(el, {
     autoAlpha: 0,
-    y: 150
+    ease: 'power2.ease'
+  });
+  gsap.to(el, {
+    autoAlpha: 1,
+    duration: 1,
+    scrollTrigger: {
+      trigger: el,
+      start: 'top-=100 top+=150',
+      end: 'top top+=150',
+      scrub: (features.length - i) * 0.2,
+      toggleActions: 'play none none reverse'
+    }
   });
 });
 
 /***/ }),
 
-/***/ 3:
-/*!******************************************!*\
-  !*** multi ./resources/js/hero_anime.js ***!
-  \******************************************/
+/***/ 5:
+/*!********************************************!*\
+  !*** multi ./resources/js/detail_anime.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/products-catalog/resources/js/hero_anime.js */"./resources/js/hero_anime.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/products-catalog/resources/js/detail_anime.js */"./resources/js/detail_anime.js");
 
 
 /***/ })

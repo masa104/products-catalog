@@ -3,7 +3,6 @@
 @section('stylesheet')
 
 <link rel="stylesheet" href="{{ asset('/css/detail.min.css') }}">
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 @endsection
 
 @section('content')
@@ -28,12 +27,15 @@
 		</div>
 
 		<div class="cover-img-box hero-img">
-			<img class="cover-img" loading="lazy" src="{{ asset('/images/items/' . $item->slug . '/hero.jpg') }}" alt="{{ $item->name }}" />
+			<picture>
+				<source loading="lazy" media="(min-width: 768px)" srcset="{{ asset('/images/items/' .$item->slug . '/hero.jpg') }}" width="1200" height="630">
+				<img loading="lazy" class="cover-img" src="{{ asset('/images/items/' .$item->slug . '/main.jpg') }}" alt="{{ $item->name }}" width="600" height="315">
+			</picture>
 		</div>
 	</div>
 </section>
 
-<section class="section features">
+<section class="section features scroll-trigger">
 	<div class="container">
 		<h1 class="section-heading">Features</h1>
 		<div class="grid">
@@ -97,19 +99,19 @@
 		<div class="social-btns text-center">
 			<ul>
 				<li>
-					<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow" target="_blank">
+					<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow noopener noreferrer" target="_blank">
 						<img loading="lazy" src="{{ asset('/images/twitter.svg') }}" alt="Twitter" width="32" height="32">
 						<span>Twitter</span>
 					</a>
 				</li>
 				<li>
-					<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow" target="_blank">
+					<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow noopener noreferrer" target="_blank">
 						<img loading="lazy" src="{{ asset('/images/facebook.svg') }}" alt="Facebook" width="32" height="32">
 						<span>Facebook</span>
 					</a>
 				</li>
 				<li>
-					<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow" rel="nofollow" target="_blank">
+					<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow noopener noreferrer" target="_blank">
 						<img loading="lazy" src="{{ asset('/images/pocket.svg') }}" alt="Pocket" width="32" height="32">
 						<span>Pocket</span>
 					</a>
@@ -121,39 +123,5 @@
 @endsection
 
 @section('script')
-<script>
-	const heroTl = gsap.timeline({
-		defaults: {
-			autoAlpha: 1,
-			duration: 1
-		}
-	});
-	const heroAnime = {
-		autoAlpha: 0,
-		y: 150
-	}
-	heroTl.from(['.outline'], heroAnime)
-	heroTl.from(['.hero-img'], heroAnime)
-
-	gsap.registerPlugin(ScrollTrigger);
-	const features = gsap.utils.toArray('.feature');
-	features.forEach((el, i) => {
-		gsap.set(el, {
-			autoAlpha: 0,
-			ease: 'power2.ease',
-		})
-		gsap.to(el, {
-			autoAlpha: 1,
-			duration: 1,
-			scrollTrigger: {
-				trigger: el,
-				start: 'top-=100 top+=150',
-				end: 'top top+=150',
-				scrub: (features.length - i) * 0.2,
-				toggleActions: 'play none none reverse'
-			},
-		});
-	});
-
-</script>
+<script src="{{ asset('/js/detail_anime.js') }}"></script>
 @endsection

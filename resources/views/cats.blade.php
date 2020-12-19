@@ -2,8 +2,6 @@
 
 
 @section('stylesheet')
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
 <link rel="stylesheet" href="{{ asset('/css/list.min.css') }}">
 @endsection
 
@@ -24,7 +22,7 @@
 </section>
 
 
-<section class="section category-list">
+<section class="section category-list scroll-trigger">
 	<div class="container">
 		<h1 id="{{ $cat->slug }}" class="section-heading">{{ $cat->name }}</h1>
 		<div class="grid">
@@ -32,7 +30,7 @@
 			<article class="card grid-item -num-{{ $loop->index + 1 }}">
 				<a class="card-link" href="{{ route('list', [$cat->slug, $child->slug]) }}">
 					<div class="cover-img-box">
-						<img loading="lazy" class="card-img cover-img" src="{{ asset('/images/cats/' .$child->slug . '/main.jpg') }}" alt="{{ $child->name }}" width="600" height="315">
+						<img loading="lazy" class="card-img cover-img thumb-img" src="{{ asset('/images/cats/' .$child->slug . '/main.jpg') }}" alt="{{ $child->name }}" width="600" height="315">
 					</div>
 					<div class="card-body">
 						<h1 class="h4 card-title">{{ $child->name }}</h1>
@@ -49,6 +47,6 @@
 @endsection
 
 @section('script')
-<script src="//unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{{ asset('/js/card_anime.js') }}"></script>
 <script src="{{ asset('/js/hero_anime.js') }}"></script>
 @endsection

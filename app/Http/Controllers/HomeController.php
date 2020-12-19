@@ -8,6 +8,7 @@ use App\Models\Item;
 
 class HomeController extends Controller
 {
+    private const PAGE_COUNT = 12;
     /**
      * Display a listing of the root level categories.
      *
@@ -42,7 +43,7 @@ class HomeController extends Controller
 
         if ($lev2) {
             $cat   = Category::bySlug($lev2)->firstOrFail();
-            $items = $cat->items()->paginate(3);
+            $items = $cat->items()->paginate(self::PAGE_COUNT);
 
             return view('items', compact('cat', 'items'))
                 ->with([
@@ -61,7 +62,7 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $items = Item::searchResults($request->keyword)->paginate(9);
+        $items = Item::searchResults($request->keyword)->paginate(self::PAGE_COUNT);
 
         $items->withPath("/search/?keyword={$request->keyword}");
 

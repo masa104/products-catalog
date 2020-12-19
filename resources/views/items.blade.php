@@ -23,7 +23,7 @@
 @endif
 
 
-<section class="section items">
+<section class="section items scroll-trigger">
 	<div class="container">
 		@if(Route::currentRouteName() === 'list')
 			<h1 id="{{ $cat->slug }}" class="section-heading">{{ $cat->name }}</h1>
@@ -32,23 +32,21 @@
 		@endif
 
 		@if(!$items->total())
-			<p>Sorry, Not found.</p>
+			<div class="text-center">
+				<p>Sorry, Not found.</p>
+				<p><a href="{{ route('home') }}" class="btn btn-primary">Back To Home</a></p>
+			</div>
 		@else
-			<p>
-				Displaying <span class="font-weight-bold text-primary">{{ $items->firstItem() }} - {{ $items->lastItem() }}</span> of <span class="font-weight-bold text-primary">{{ $items->total() }}</span> items.
-			</p>
+			@component('components.pagination', ['items' => $items])
+			@endcomponent
 		@endif
 
-		<div class="my-4">
-			{{ $items->onEachSide(2)->links() }}
-		</div>
-
-		<div class="grid">
+		<div class="grid mb-4">
 			@foreach($items as $item)
 				<article class="card grid-item">
 					<a class="card-link" href="{{ route('list', [$item->cat->parent->slug, $item->cat->slug, $item->slug]) }}">
 						<div class="cover-img-box">
-							<img loading="lazy" class="card-img cover-img" src="{{ asset('/images/items/' . $item->slug . '/main.jpg' ) }}" alt="{{ $item->name }}" width="600" height="315">
+							<img loading="lazy" class="card-img cover-img thumb-img"" src=" {{ asset('/images/items/' . $item->slug . '/main.jpg' ) }}" alt="{{ $item->name }}" width="600" height="315">
 						</div>
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $item->name }}</h1>
@@ -58,6 +56,11 @@
 				</article>
 			@endforeach
 		</div>
+
+		@if($items->total() > 6)
+			@component('components.pagination', ['items' => $items])
+			@endcomponent
+		@endif
 	</div>
 </section>
 
@@ -65,5 +68,6 @@
 @endsection
 
 @section('script')
+<script src="{{ asset('/js/card_anime.js') }}"></script>
 <script src="{{ asset('/js/hero_anime.js') }}"></script>
 @endsection
