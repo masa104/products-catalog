@@ -60,6 +60,8 @@
 		display: inline-block;
 		position: relative;
 		margin-top: 1rem;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		overflow: unset;
 	}
 
 	.feature .cover-img-box:after {

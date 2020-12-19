@@ -9,34 +9,16 @@
 
 @section('content')
 
-{{-- <section class="section">
-	<div class="container">
-		<div class="swiper-container">
-			<!-- Additional required wrapper -->
-			<div class="swiper-wrapper">
-				<!-- Slides -->
-				<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-<div class="swiper-slide"><img src="https://picsum.photos/id/{{ rand(100,600) }}/1920/400" alt="" /></div>
-...
-</div>
-<!-- If we need pagination -->
-<div class="swiper-pagination"></div>
-
-<!-- If we need navigation buttons -->
-<div class="swiper-button-prev"></div>
-<div class="swiper-button-next"></div>
-
-</div>
-</div>
-</section> --}}
-<section class="section">
-	<div class="container">
-		<div class="cover-img-box hero-img">
-			<picture>
-				<source media="(min-width: 768px)" srcset="{{ asset('/images/hero/home_1200x400.jpg') }}">
-				<img class="cover-img" loading="lazy" src="{{ asset('/images/hero/home_1200x400_sp.jpg') }}" alt="" />
-			</picture>
+<section class="section py-0">
+	<div class="cover-img-box hero-img layered-hero">
+		<picture>
+			<source media="(min-width: 768px)" srcset="{{ asset('/images/cats/' .$cat->slug . '/hero.jpg') }}">
+			<img class="cover-img layered-image" loading="lazy" src="{{ asset('/images/cats/' .$cat->slug . '/main.jpg') }}" alt="{{ $cat->name }}" />
+		</picture>
+		<div class="layered-text">
+			<h1 class="layered-title">{{ $cat->name }}</h1>
+			<p class="layered-desc">{{ $cat->desc }}</p>
+			<a href="#{{ $cat->slug }}" class="layered-button btn btn-lg btn-dark">Check</a>
 		</div>
 	</div>
 </section>
@@ -44,13 +26,13 @@
 
 <section class="section category-list">
 	<div class="container">
-		<h1 class="section-heading">{{ $cat->name }}</h1>
+		<h1 id="{{ $cat->slug }}" class="section-heading">{{ $cat->name }}</h1>
 		<div class="grid">
 			@foreach($cat->children as $child)
 				<article class="card grid-item -num-{{ $loop->index + 1 }}">
 					<a class="card-link" href="{{ route('list', [$cat->slug, $child->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" loading="lazy" src=" https://picsum.photos/id/{{ round(rand(1, 600) ) }}/500/250" alt="{{ $child->name }}">
+							<img class="card-img cover-img" loading="lazy" src="{{ asset('/images/cats/' .$child->slug . '/main.jpg') }}" alt="{{ $child->name }}">
 						</div>
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $child->name }}</h1>
@@ -68,23 +50,6 @@
 
 @section('script')
 <script src="//unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-	var mySwiper = new Swiper('.swiper-container', {
-		// Optional parameters
-		loop: true,
-
-		// If we need pagination
-		pagination: {
-			el: '.swiper-pagination',
-		},
-
-		// Navigation arrows
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-
-	})
-
-</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="{{ asset('/js/hero_anime.js') }}"></script>
 @endsection

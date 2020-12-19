@@ -57,7 +57,7 @@
 	<!-- Fixed footer -->
 	<footer class="footer bg-dark">
 		<div class="container text-center">
-			<span class="text-white">Created By Masatoshi Kokaji<br>&copy; 2020</span>
+			<span class="text-white">Created By M.K.<br>&copy; 2020</span>
 		</div>
 	</footer>
 
@@ -66,10 +66,11 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-
-	@yield('script')
 	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+
+	@yield('script')
+
 	<script>
 		gsap.registerPlugin(ScrollTrigger);
 
@@ -80,15 +81,12 @@
 		})
 		tl.from('.card', {
 			duration: 1,
-			stagger: 0.2,
+			stagger: 0.1,
 			autoAlpha: 0,
 			y: 150
 		})
 		gsap.utils.toArray('.section').forEach(section => {
 			ScrollTrigger.create({
-				// start: "top top",
-				// end: "+=500",
-				// markers: true,
 				trigger: section,
 				animation: tl
 			})

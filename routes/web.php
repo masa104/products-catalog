@@ -1,5 +1,11 @@
 <?php
 
+
+
+Route::get('/scrape-cats', 'ImageCollectController@cats');
+Route::get('/scrape-items', 'ImageCollectController@items');
+Route::get('/scrape-icons', 'ImageCollectController@icons');
+
 Route::get('/', 'HomeController@index')
     ->name('home');
 

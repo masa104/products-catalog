@@ -7,23 +7,37 @@
 @section('content')
 
 @if(Route::currentRouteName() === 'list')
-	<section class="section">
-		<div class="container">
-			<div class="cover-img-box hero-img">
-				<picture>
-					<source media="(min-width: 768px)" srcset="{{ asset('/images/hero/home_1200x400.jpg') }}">
-					<img class="cover-img" loading="lazy" src="{{ asset('/images/hero/home_1200x400_sp.jpg') }}" alt="" />
-				</picture>
+	<section class="section hero py-0">
+		<div class="cover-img-box hero-img layered-hero">
+			<picture>
+				<source media="(min-width: 768px)" srcset="{{ asset('/images/cats/' .$cat->slug . '/hero.jpg') }}">
+				<img class="cover-img layered-image" loading="lazy" src="{{ asset('/images/cats/' .$cat->slug . '/main.jpg') }}" alt="{{ $cat->name }}" />
+			</picture>
+			<div class="layered-text">
+				<h1 class="layered-title">{{ $cat->name }}</h1>
+				<p class="layered-desc">{{ $cat->desc }}</p>
+				<a href="#{{ $cat->slug }}" class="layered-button btn btn-lg btn-dark">Check</a>
 			</div>
 		</div>
 	</section>
+
+	{{-- <section class="section">
+		<div class="container">
+			<div class="cover-img-box hero-img">
+				<picture>
+					<source media="(min-width: 768px)" srcset="{{ asset('/images/cats/' .$cat->slug . '/hero.jpg') }}">
+	<img class="cover-img" loading="lazy" src="{{ asset('/images/cats/' .$cat->slug . '/main.jpg') }}" alt="" />
+	</picture>
+	</div>
+	</div>
+	</section> --}}
 @endif
 
 
 <section class="section items">
 	<div class="container">
 		@if(Route::currentRouteName() === 'list')
-			<h1 class="section-heading">{{ $cat->name }}</h1>
+			<h1 id="{{ $cat->slug }}" class="section-heading">{{ $cat->name }}</h1>
 		@else
 			<h1 class="section-heading">Search Results</h1>
 		@endif
@@ -45,7 +59,7 @@
 				<article class="card grid-item">
 					<a class="card-link" href="{{ route('list', [$item->cat->parent->slug, $item->cat->slug, $item->slug]) }}">
 						<div class="cover-img-box">
-							<img class="card-img cover-img" loading="lazy" src=" https://picsum.photos/id/{{ round(rand(1, 500)) }}/500/250" alt="{{ $item->name }}">
+							<img class="card-img cover-img" loading="lazy" src="{{ asset('/images/items/' . $item->slug . '/main.jpg' ) }}" alt="{{ $item->name }}">
 						</div>
 						<div class="card-body">
 							<h1 class="h4 card-title">{{ $item->name }}</h1>
@@ -62,5 +76,5 @@
 @endsection
 
 @section('script')
-
+<script src="{{ asset('/js/hero_anime.js') }}"></script>
 @endsection

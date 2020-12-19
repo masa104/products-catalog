@@ -17,16 +17,14 @@
 				<p class="">{{ $item->desc }}</p>
 				<div class="icons">
 					@foreach($item->icons as $icon)
-						<img loading="lazy" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/64/64" alt="{{ $icon->name }}">
+						<img loading="lazy" src="{{ asset('/images/icons/' . $icon->slug . '.jpg') }}" alt="{{ $icon->name }}" title="{{ $icon->name }}">
 					@endforeach
-					@for($i = 0; $i < 5; $i++)
-					@endfor
 				</div>
 			</div>
 		</div>
 
 		<div class="cover-img-box hero-img">
-			<img class="cover-img" loading="lazy" src="https://picsum.photos/id/{{ round(rand(100,600)) }}/1200/630" alt="" />
+			<img class="cover-img" loading="lazy" src="{{ asset('/images/items/' . $item->slug . '/hero.jpg') }}" alt="{{ $item->name }}" />
 		</div>
 	</div>
 </section>
@@ -66,7 +64,7 @@
 						<p>{{ $feature->content }}</p>
 					</div>
 					<div class="cover-img-box">
-						<img class="cover-img" loading="lazy" src="https://picsum.photos/id/{{ round(rand(1,600)) }}/600/400" alt="{{ $feature->heading }}">
+						<img class="cover-img" loading="lazy" src="{{ asset('/images/items/' . $item->slug . '/feature_' . $loop->iteration . '.jpg') }}" alt="{{ $feature->heading }}">
 					</div>
 				</article>
 			@endforeach
