@@ -93,7 +93,37 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/products-catalog/resources/js/detail_anime.js'");
+var heroTl = gsap.timeline({
+  defaults: {
+    autoAlpha: 1,
+    duration: 1
+  }
+});
+var heroAnime = {
+  autoAlpha: 0,
+  y: 150
+};
+heroTl.from(['.outline'], heroAnime);
+heroTl.from(['.hero-img'], heroAnime);
+gsap.registerPlugin(ScrollTrigger);
+var features = gsap.utils.toArray('.feature');
+features.forEach(function (el, i) {
+  gsap.set(el, {
+    autoAlpha: 0,
+    ease: 'power2.ease'
+  });
+  gsap.to(el, {
+    autoAlpha: 1,
+    duration: 1,
+    scrollTrigger: {
+      trigger: el,
+      start: 'top-=100 top+=150',
+      end: 'top top+=150',
+      scrub: (features.length - i) * 0.2,
+      toggleActions: 'play none none reverse'
+    }
+  });
+});
 
 /***/ }),
 

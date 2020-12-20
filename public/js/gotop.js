@@ -93,7 +93,41 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/products-catalog/resources/js/gotop.js'");
+document.addEventListener("DOMContentLoaded", function () {
+  var gotop = document.getElementById('gotop');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 100) {
+      gotop.classList.add('show');
+    } else {
+      gotop.classList.remove('show');
+    }
+  }, false);
+});
+var scrollToTopBtn = document.getElementById("gotop");
+var rootElement = document.documentElement;
+
+function handleScroll() {
+  // do something on scroll
+  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+
+  if (rootElement.scrollTop / scrollTotal > 0.80) {
+    //show button
+    scrollToTopBtn.classList.add('show');
+  } else {
+    //hide button
+    scrollToTopBtn.classList.remove('show');
+  }
+}
+
+function scrollToTop() {
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+scrollToTopBtn.addEventListener("click", scrollToTop);
+document.addEventListener("scroll", handleScroll);
 
 /***/ }),
 

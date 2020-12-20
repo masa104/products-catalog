@@ -91,9 +91,48 @@
   !*** ./resources/js/card_anime.js ***!
   \************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/products-catalog/resources/js/card_anime.js'");
+"use strict";
+ // gsap.registerPlugin(ScrollTrigger);
+// const cardTl = gsap.timeline({
+//   defaults: {
+//     autoAlpha: 1,
+//   }
+// })
+// cardTl.from('.card', {
+//   duration: 1,
+//   stagger: 0.1,
+//   autoAlpha: 0,
+//   y: 150
+// })
+// gsap.utils.toArray('.section').forEach(section => {
+//   ScrollTrigger.create({
+//     trigger: section,
+//     animation: cardTl
+//   })
+// })
+
+gsap.registerPlugin(ScrollTrigger);
+var defaultAnime = {
+  autoAlpha: 0,
+  ease: 'power2.ease',
+  y: 150
+};
+gsap.utils.toArray('.scroll-trigger').forEach(function (trigger, i) {
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function (card) {
+    gsap.set(card, defaultAnime);
+    gsap.to(card, {
+      autoAlpha: 1,
+      y: 0,
+      scrollTrigger: {
+        trigger: card,
+        toggleActions: 'play none none reverse'
+      }
+    });
+  });
+});
 
 /***/ }),
 

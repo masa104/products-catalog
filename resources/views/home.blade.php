@@ -1,165 +1,76 @@
 @extends('master')
 
+@section('stylesheet')
+<link rel="stylesheet" href="{{ asset('/css/home.min.css') }}">
+@endsection
+
 @section('content')
 
-
-<div class="mb-5">
-	<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
-			<div class="carousel-item active" data-interval="10000">
-				<img src="https://picsum.photos/id/{{ rand(100,600) }}/1200/400" alt="" />
-			</div>
-			<div class="carousel-item" data-interval="2000">
-				<img src="https://picsum.photos/id/{{ rand(100,600) }}/1200/400" alt="" />
-			</div>
-			<div class="carousel-item">
-				<img src="https://picsum.photos/id/{{ rand(100,600) }}/1200/400" alt="" />
-			</div>
+<section class="section py-0">
+	<div class="cover-img-box hero-img layered-hero">
+		<picture>
+			<source loading="lazy" media="(min-width: 768px)" srcset="{{ asset('/images/items/' . $items->random()->slug . '/hero.jpg') }}" width="1920" height="1080">
+			<img loading="lazy" class="cover-img layered-image" src="{{ asset('/images/items/' . $items->random()->slug . '/main.jpg') }}" alt="{{ $items->random()->name }}" width="600" height="315">
+		</picture>
+		<div class="layered-text">
+			<h1 class="layered-title">{{ config('app.name') }}</h1>
+			<p class="layered-desc">This is "Products Catalog Demo" by using Lorem Ipsum.<br>You can find products from category list or by keywords.</p>
+			<a href="#find-items" class="layered-button btn btn-lg btn-dark">Find !</a>
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
 	</div>
-</div>
-<style>
+</section>
 
 
-</style>
-
-<ul class="nav nav-tabs" id="informationTab" role="tablist">
-	<li class="nav-item" role="presentation">
-		<a class="nav-link active" id="pickup-tab" data-toggle="tab" href="#pickup" role="tab" aria-controls="pickup" aria-selected="true">新着情報</a>
-	</li>
-	<li class="nav-item" role="presentation">
-		<a class="nav-link" id="category-tab" data-toggle="tab" href="#category" role="tab" aria-controls="category" aria-selected="false">商品を探す</a>
-	</li>
-</ul>
-<style>
-	.grid,
-	.cat-grid {
-		display: grid;
-		grid-gap: 1rem;
-	}
-
-	.grid {
-		grid-template-columns: repeat(1, 1fr);
-
-	}
-
-	.cat-grid {
-		grid-template-columns: repeat(4, 1fr);
-	}
-
-	@@media (min-width: 992px) {
-		.grid {
-			grid-template-columns: repeat(3, 1fr);
-			grid-auto-rows: 320px;
-		}
-	}
-
-	.grid__inner .image {
-		overflow: hidden;
-	}
-
-	.grid__inner--1 {
-		grid-column: 1 / 3;
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.grid__inner--1 .image {
-		grid-column: 1 / 2;
-	}
-
-	.grid__inner .image img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-</style>
-<div class="tab-content bg-light" id="informationTabContent">
-	<div class="tab-pane fade show active p-3" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
+<section class="section home scroll-trigger">
+	<div class="container">
+		<h1 id="find-items" class="section-heading">Find Items</h1>
 		<div class="grid">
-			@for($i = 0; $i < 10; $i++)
-				<a href="{{ route('detail') }}" class="grid__inner grid__inner--{{ $i % 5 + 1 }} bg-white">
-					<div class="image">
-						<img class="" src="https://picsum.photos/id/{{ rand(1, 100) * $i+ 1 }}/585/365" alt="...">
-					</div>
-					<div class="card-body">
-						<p>Lorem ipsum dolor sit amet.</p>
-						<h1 class="">Card title</h1>
-					</div>
-				</a>
-			@endfor
-		</div>
-	</div>
-	<div class="tab-pane fade p-3" id="category" role="tabpanel" aria-labelledby="category-tab">
-		<div class="cat-grid">
-			@for($i = 0; $i < 10; $i++)
-				<div class="card">
-					<span data-toggle="modal" data-target="#staticBackdrop{{ $i }}">
-						<img src="https://picsum.photos/id/{{ rand(1, 10) * $i }}/500/250" class="card-img" alt="...">
+			@foreach($cats as $cat)
+				<article class="card grid-item">
+					<a class="card-link" href="{{ route('list', [$cat->slug]) }}">
+						<div class="cover-img-box">
+							<img loading="lazy" class="card-img cover-img thumb-img" src="{{ asset('/images/cats/' .$cat->slug . '/main.jpg') }}" alt="{{ $cat->name }}" width="600" height="315">
+						</div>
 						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
+							<h1 class="h5 card-title mb-0">{{ $cat->name }}</h1>
 						</div>
-					</span>
-				</div>
-			@endfor
-			<div class="bg-dark text-white"><a href="">商品カテゴリ一覧</a></div>
+					</a>
+				</article>
+			@endforeach
 		</div>
 	</div>
+</section>
 
-</div>
-
-
-
-<div class="modal fade" id="staticBackdrop0" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-		<div class="modal-content">
-			<div class="modal-header">
-				<ul class="nav nav-tabs" id="myTab" role="tablist">
-					<li class="nav-item" role="presentation">
-						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sub-Category1</a>
-					</li>
-					<li class="nav-item" role="presentation">
-						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sub-Category2</a>
-					</li>
-					<li class="nav-item" role="presentation">
-						<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Sub-Category3</a>
-					</li>
-				</ul>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="tab-content" id="myTabContent">
-					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-						<div class="cat-grid">
-
-							@for($i = 0; $i < 6; $i++)
-								<div class="card">
-									<a href="{{ route('list') }}">
-										<img src="https://picsum.photos/id/{{ rand(1, 10) * $i }}/500/250" class="card-img" alt="...">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-										</div>
-									</a>
-								</div>
-							@endfor
+<section class="section new-arrivals scroll-trigger">
+	<div class="container">
+		<h1 class="section-heading">Pickups</h1>
+		<div class="grid">
+			@foreach($items as $item)
+				<article class="card grid-item -num-{{ $loop->index % 5 + 1 }}">
+					<a class="card-link" href="{{ route('list', [$item->cat->parent->slug, $item->cat->slug, $item->slug]) }}">
+						<div class="cover-img-box">
+							<img loading="lazy" class="card-img cover-img thumb-img" src="{{ asset('/images/items/' . $item->slug . '/main.jpg') }}" alt="{{ $item->name }}" width="600" height="315">
 						</div>
-					</div>
-				</div>
-			</div>
+						<div class="card-body">
+							@if($loop->iteration <= 5 )
+								<p class="mb-2"><small class="px-2 py-1 bg-danger text-white font-weight-bold">New</small></p>
+							@endif
+							<p class="mb-1 text-black-50">{{ $item->cat->name }}</p>
+							<h1 class="h4 card-title">{{ $item->name }}</h1>
+							<p class="mb-0">
+								Sales on <span class="text-danger">{{ $item->release_date_month_date }}</span>
+							</p>
+						</div>
+					</a>
+				</article>
+			@endforeach
 		</div>
 	</div>
-</div>
+</section>
 
+@endsection
+
+@section('script')
+<script src="{{ asset('/js/card_anime.js') }}"></script>
+<script src="{{ asset('/js/hero_anime.js') }}"></script>
 @endsection

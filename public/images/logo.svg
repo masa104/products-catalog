@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="89.125" height="25.428" viewBox="0 0 89.125 25.428">
+  <g id="logo-group" transform="translate(-392.875 -298.564)">
+    <text id="k-letter" transform="translate(462 319)" fill="#fff" font-size="20" font-family="HiraMaruProN-W4, Hiragino Maru Gothic ProN" letter-spacing="-0.012em"><tspan x="0" y="0">K.</tspan></text>
+    <text id="m-letter" transform="translate(434 319)" fill="#fff" font-size="20" font-family="HiraMaruProN-W4, Hiragino Maru Gothic ProN" letter-spacing="-0.012em"><tspan x="0" y="0">M.</tspan></text>
+    <g id="code-slash-outline" transform="translate(391.75 293.25)">
+      <path id="path_blacket_left" d="M12.92,24.678,2.25,17.4l10.67-7.277" transform="translate(0 0.626)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+      <path id="path_blacket_right" d="M24.75,24.678,35.42,17.4,24.75,10.125" transform="translate(-1.592 0.626)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+      <path id="path_slash" d="M22.627,6.75l-8,22.555" transform="translate(-0.587)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+    </g>
+  </g>
+</svg>

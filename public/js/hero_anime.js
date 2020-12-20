@@ -91,9 +91,29 @@
   !*** ./resources/js/hero_anime.js ***!
   \************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/products-catalog/resources/js/hero_anime.js'");
+"use strict";
+
+
+var heroTl = gsap.timeline({
+  defaults: {
+    duration: .7,
+    ease: 'power3.out'
+  }
+});
+heroTl.from('.layered-image', {
+  scale: 1.3,
+  transformOrigin: '50% 50%',
+  filter: 'grayscale(100%)',
+  delay: .3
+});
+gsap.utils.toArray(['.layered-text', '.layered-title', '.layered-desc', '.layered-button']).forEach(function (elm) {
+  heroTl.from(elm, {
+    autoAlpha: 0,
+    y: 150
+  });
+});
 
 /***/ }),
 
