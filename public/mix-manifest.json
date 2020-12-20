@@ -1,4 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/card_anime.js": "/js/card_anime.js",
+    "/js/detail_anime.js": "/js/detail_anime.js",
+    "/js/gotop.js": "/js/gotop.js",
+    "/js/hero_anime.js": "/js/hero_anime.js",
+    "/js/swiper.js": "/js/swiper.js"
 }
