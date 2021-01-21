@@ -1,11 +1,11 @@
 {
-    "/js/gotop.js": "/js/gotop.js",
-    "/js/hero_anime.js": "/js/hero_anime.js",
-    "/js/card_anime.js": "/js/card_anime.js",
-    "/js/detail_anime.js": "/js/detail_anime.js",
-    "/css/style.min.css": "/css/style.min.css",
-    "/css/pages/detail.min.css": "/css/pages/detail.min.css",
-    "/css/pages/items.min.css": "/css/pages/items.min.css",
-    "/css/pages/list.min.css": "/css/pages/list.min.css",
-    "/css/pages/home.min.css": "/css/pages/home.min.css"
+    "/js/gotop.js": "/js/gotop.js?id=4611956341c0fe6751d2",
+    "/js/hero_anime.js": "/js/hero_anime.js?id=cef320d06f281a31ffd8",
+    "/js/card_anime.js": "/js/card_anime.js?id=1a8fe4b53d22bb8b0ba7",
+    "/js/detail_anime.js": "/js/detail_anime.js?id=a293be20ab79a323fe5a",
+    "/css/style.min.css": "/css/style.min.css?id=a9e1ca20d51939c9e1bc",
+    "/css/pages/detail.min.css": "/css/pages/detail.min.css?id=437fdf0d7b2687a75cd3",
+    "/css/pages/items.min.css": "/css/pages/items.min.css?id=f523a5c3313df582bd37",
+    "/css/pages/list.min.css": "/css/pages/list.min.css?id=2a1a915b867a11e033c0",
+    "/css/pages/home.min.css": "/css/pages/home.min.css?id=8accad0ccdfebf05a57c"
 }
