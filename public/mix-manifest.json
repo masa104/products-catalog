@@ -1,9 +1,11 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/card_anime.js": "/js/card_anime.js",
-    "/js/detail_anime.js": "/js/detail_anime.js",
     "/js/gotop.js": "/js/gotop.js",
     "/js/hero_anime.js": "/js/hero_anime.js",
-    "/js/swiper.js": "/js/swiper.js"
+    "/js/card_anime.js": "/js/card_anime.js",
+    "/js/detail_anime.js": "/js/detail_anime.js",
+    "/css/style.min.css": "/css/style.min.css",
+    "/css/pages/detail.min.css": "/css/pages/detail.min.css",
+    "/css/pages/items.min.css": "/css/pages/items.min.css",
+    "/css/pages/list.min.css": "/css/pages/list.min.css",
+    "/css/pages/home.min.css": "/css/pages/home.min.css"
 }

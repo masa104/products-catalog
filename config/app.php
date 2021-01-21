@@ -13,8 +13,11 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
-
+    'name'            => env('APP_NAME', 'Laravel'),
+    'description'     => env('APP_DESCRIPTION', 'Laravel'),
+    'site_name'   => env('APP_SITE_NAME', 'Laravel'),
+    'base_title'  => env('APP_BASE_TITLE', 'Laravel'),
+    'twitter_account' => env('TWITTER_ACCOUNT', 'Laravel'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

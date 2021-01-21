@@ -1,8 +1,11 @@
 <header class="">
 	<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #222">
 		<div class="container">
-			<a class="navbar-brand font-weight-bold" href="/">
-				<img src="{{ asset('/images/logo.svg') }}" alt="{{ config('app.name') }}" width="133" height="33">
+			<a class="navbar-brand" href="/">
+				<!-- <img src="{{ asset('/images/logo.svg') }}" alt=""> -->
+				<h1 class="h3 mb-0">
+					<span>Products Catalog</span><small>by Masapochi</small>
+				</h1>
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

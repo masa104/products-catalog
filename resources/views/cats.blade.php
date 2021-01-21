@@ -2,7 +2,7 @@
 
 
 @section('stylesheet')
-<link rel="stylesheet" href="{{ asset('/css/list.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/pages/list.min.css') }}">
 @endsection
 
 @section('content')

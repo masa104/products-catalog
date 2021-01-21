@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,MAAM,EAAE,SAAS,EAAE,KAAK,EACvB,AAAA,KAAK,AAAC,CACL,qBAAqB,CAAE,cAAc,CACrC,CAGF,MAAM,EAAE,SAAS,EAAE,KAAK,EACvB,AAAA,KAAK,AAAC,CACL,qBAAqB,CAAE,cAAc,CACrC",
-    "sources": [
-        "../../resources/sass/pages/items.scss"
-    ],
-    "names": [],
-    "file": "items.min.css"
-}

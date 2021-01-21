@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('stylesheet')
-<link rel="stylesheet" href="{{ asset('/css/items.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/pages/items.min.css') }}">
 @endsection
 
 @section('content')

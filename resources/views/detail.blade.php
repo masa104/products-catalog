@@ -2,7 +2,7 @@
 
 @section('stylesheet')
 
-<link rel="stylesheet" href="{{ asset('/css/detail.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/pages/detail.min.css') }}">
 @endsection
 
 @section('content')
@@ -100,19 +100,19 @@
 			<ul>
 				<li>
 					<a class="btn btn-lg twitter" href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}&text={{ $item->name }}" rel="nofollow noopener noreferrer" target="_blank">
-						<img loading="lazy" src="{{ asset('/images/twitter.svg') }}" alt="Twitter" width="32" height="32">
+						<img loading="lazy" src="{{ asset('/images/sns/twitter.svg') }}" alt="Twitter" width="32" height="32">
 						<span>Twitter</span>
 					</a>
 				</li>
 				<li>
 					<a class="btn btn-lg facebook" href="https://www.facebook.com/share.php?u={{ request()->fullUrl() }}" rel="nofollow noopener noreferrer" target="_blank">
-						<img loading="lazy" src="{{ asset('/images/facebook.svg') }}" alt="Facebook" width="32" height="32">
+						<img loading="lazy" src="{{ asset('/images/sns/facebook.svg') }}" alt="Facebook" width="32" height="32">
 						<span>Facebook</span>
 					</a>
 				</li>
 				<li>
 					<a class="btn btn-lg pocket" href="https://getpocket.com/edit?url={{ request()->fullUrl() }}&title={{ $item->name }}" rel="nofollow noopener noreferrer" target="_blank">
-						<img loading="lazy" src="{{ asset('/images/pocket.svg') }}" alt="Pocket" width="32" height="32">
+						<img loading="lazy" src="{{ asset('/images/sns/pocket.svg') }}" alt="Pocket" width="32" height="32">
 						<span>Pocket</span>
 					</a>
 				</li>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 
 html {
 	scroll-behavior: smooth;
@@ -15,9 +15,31 @@ body {
 	grid-template-rows: auto 1fr auto;
 	width: 100%;
 	min-height: 100vh;
-
 }
 
+.navbar-brand {
+	span {
+		font-weight: 600;
+	}
+
+	small {
+		margin-left: 0.5rem;
+		font-size: .8rem;
+		vertical-align: baseline;
+	}
+}
+
+@media (max-width: 767px) {
+.navbar-brand {
+	span {
+		font-size: 1.5rem;
+	}
+
+	small {
+			display: none;
+		}
+	}
+}
 .main {
 	margin-bottom: 7rem;
 }
@@ -63,8 +85,6 @@ body {
 		min-height: 350px;
 	}
 }
-
-.hero-img {}
 
 .layered-hero {
 	position: relative;

@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-	<!-- <meta name="robots" content="noindex, noindex" /> -->
+	<meta name="robots" content="noindex, noindex">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,29 +18,31 @@
 		@endif
 		{{ config('app.name') }}
 	</title>
-	<meta name="description" content="{{ $meta_desc ?? config('app.name') }}">
-	<meta property="og:title" content="{{ $meta_title ?? config('app.name') }}">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="{{ request()->fullUrl() }}">
-	<meta property="og:image" content="https://www.irisohyama.co.jp/common/images/fb.png">
-	<meta property="og:site_name" content={{ config('app.name') }}>
-	<meta property="og:description" content="{{ $meta_desc ?? config('app.name') }}">
-	<meta property="og:locale" content="ja_JP">
-	<meta property="fb:app_id" content="">
-
+	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="">
-	<meta name="twitter:title" content="{{ $meta_title ?? config('app.name') }}">
-	<meta name="twitter:description" content="{{ $meta_desc ?? config('app.name') }}">
-	<meta name="twitter:image" content="https://www.irisohyama.co.jp/common/images/fb.png">
+	<meta name="twitter:site" content="{{ config('app.twitter_account') }}">
+	<meta name="twitter:creator" content="{{ config('app.twitter_account') }}">
 	<meta name="twitter:url" content="{{ request()->fullUrl() }}">
+	<meta name="twitter:title" content="{{ $meta_title ?? config('app.base_title') }}">
+	<meta name="twitter:description" content="{{ $meta_desc ?? config('app.description') }}">
+	<meta name="twitter:image" content="{{ $meta_image }}">
+
+	<!-- Facebook OGP -->
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:site_name" content="{{ config('app.site_name') }}">
+	<meta property="og:url" content="{{ request()->fullUrl() }}">
+	<meta property="og:title" content="{{ $meta_title ?? config('app.base_title') }}">
+	<meta property="og:description" content="{{ $meta_desc ?? config('app.description') }}">
+	<meta property="og:image" content="{{ $meta_image }}">
 
 	<link rel="canonical" href="{{ request()->fullUrl() }}">
-	<link rel="apple-touch-icon" href="./icon.png">
 	<link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cosmo/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
 	<link rel="stylesheet" href="{{ asset('/css/style.min.css') }}">
+
 	@yield('stylesheet')
 </head>
 
@@ -57,7 +59,7 @@
 	<!-- Fixed footer -->
 	<footer class="footer bg-dark">
 		<div class="container text-center">
-			<span class="text-white">&copy; 2020 Created By M.K.</span>
+			<span class="text-white">&copy; 2020<br>Masapochi All Rights Reserved</span>
 		</div>
 	</footer>
 

@@ -18,7 +18,10 @@ class HomeController extends Controller
     {
         $cats  = Category::rootCats()->get();
         $items = Item::newArrivals()->get();
-        return view('home', compact('cats', 'items'));
+        return view('home', compact('cats', 'items'))
+            ->with([
+                'meta_image' => asset('/images/ogp.jpg')
+            ]);
     }
 
     /**
@@ -38,6 +41,7 @@ class HomeController extends Controller
                 ->with([
                     'meta_title' => $item->name,
                     'meta_desc'  => $item->desc,
+                    'meta_image' => asset("/images/items/{$item->slug}/hero.jpg")
                 ]);
         }
 
@@ -49,6 +53,7 @@ class HomeController extends Controller
                 ->with([
                     'meta_title' => $cat->name,
                     'meta_desc'  => $cat->desc,
+                    'meta_image' => asset("/images/cats/{$cat->slug}/hero.jpg")
                 ]);
         }
 
@@ -57,6 +62,7 @@ class HomeController extends Controller
             ->with([
                 'meta_title' => $cat->name,
                 'meta_desc'  => $cat->desc,
+                'meta_image' => asset("/images/cats/{$cat->slug}/hero.jpg")
             ]);
     }
 
@@ -66,6 +72,11 @@ class HomeController extends Controller
 
         $items->withPath("/search/?keyword={$request->keyword}");
 
-        return view('items', compact('items'));
+        return view('items', compact('items'))
+            ->with([
+                'meta_title' => "Search results of \"{$request->keyword}\".",
+                'meta_desc'  => "Search results of \"{$request->keyword}\".",
+                'meta_image' => asset('/images/ogp.jpg')
+            ]);
     }
 }
