@@ -14,7 +14,7 @@
 		</picture>
 		<div class="layered-text">
 			<h1 class="layered-title">{{ config('app.name') }}</h1>
-			<p class="layered-desc">This is "Products Catalog Demo" using Lorem Ipsum.<br>You can find products from category list or by keywords.</p>
+			<p class="layered-desc">"Catalog Demo" using Lorem Ipsum.<br>You can find products from category list or by keywords.</p>
 			<a href="#find-items" class="layered-button btn btn-lg btn-dark">Find !</a>
 		</div>
 	</div>

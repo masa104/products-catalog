@@ -1,3 +1,3 @@
-## Products Catalog Demo
+## Catalog Demo
 
 - Laravel
