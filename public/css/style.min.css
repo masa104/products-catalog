@@ -29,13 +29,26 @@ body {
   .navbar-brand small {
     display: none;
   }
+
+  .navbar-sns {
+    text-align: center;
+  }
+
+  .navbar input {
+    width: 70%;
+    margin-right: 0.5rem;
+  }
+
+  .navbar input + button {
+    flex: 1;
+  }
 }
 .main {
   margin-bottom: 7rem;
 }
 
 .footer {
-  padding: 1rem 0;
+  padding: 1rem 1rem 1.5rem 1rem;
 }
 
 .section {

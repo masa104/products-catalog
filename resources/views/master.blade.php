@@ -2,10 +2,28 @@
 <html lang="ja">
 
 <head>
-	<meta name="robots" content="noindex, noindex">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, noindex">
+	<!-- Google Tag Manager -->
+	<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({
+				'gtm.start': new Date().getTime(),
+				event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-NTVPCDX');
+	</script>
+	<!-- End Google Tag Manager -->
 	<title>
 		@if(Route::currentRouteName() === 'search')
 			{{ Breadcrumbs::view('partials.page_title', 'search', request()->keyword) }}
@@ -16,7 +34,7 @@
 				{{ Breadcrumbs::view('partials.page_title', 'hierarchy', $item->cat, $item) }}
 			@endif
 		@endif
-		{{ config('app.name') }}
+		{{ config('app.base_title') }}
 	</title>
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
@@ -47,6 +65,9 @@
 </head>
 
 <body id="js-page-top">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTVPCDX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 
 	@include('partials/header')
 
@@ -60,6 +81,14 @@
 	<footer class="footer bg-dark">
 		<div class="container text-center">
 			<span class="text-white">&copy; 2020<br>Masapochi All Rights Reserved</span>
+			<div class="tac mt-3">
+				<a class="mr-2" href="https://twitter.com/__masapochi__" target="_blank">
+					<img src="{{ asset('/images/sns/twitter_gray.svg') }}" alt="Twitter" width="32" height="32">
+				</a>
+				<a href="https://github.com/masapochi/products-catalog" target="_blank">
+					<img src="{{ asset('/images/sns/github_gray.svg') }}" alt="Github" width="32" height="32">
+				</a>
+			</div>
 		</div>
 	</footer>
 
