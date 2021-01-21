@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
-  <g id="Pocket" transform="translate(-633 -83)">
-    <rect id="長方形_4" data-name="長方形 4" width="42" height="28" transform="translate(640 95)" fill="#fff"/>
-    <path id="pocket-2" data-name="pocket" d="M79.971,261.708c-2.942.192-4.724,1.872-4.724,4.859V284.46c0,14.533,14.454,25.954,26.957,25.864,14.059-.1,27.047-11.973,27.047-25.864V266.567c0-3-1.894-4.69-4.859-4.859H79.971Zm11.387,14.555,10.846,10.3,10.857-10.3c4.859-2.041,6.979,3.506,4.983,5.13l-14.138,13.5a4.529,4.529,0,0,1-3.394,0l-14.138-13.5c-1.905-1.793.575-7.43,4.983-5.13Z" transform="translate(558.753 -174.708)" fill="#ef4056"/>
+<svg id="pocket" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Pocket-2" data-name="Pocket" transform="translate(0 2)">
+    <rect id="長方形_4" data-name="長方形 4" width="24.887" height="16.591" transform="translate(3.555 4.74)" fill="#fff" />
+    <path id="pocket-3" data-name="pocket" d="M78.046,261.708a2.686,2.686,0,0,0-2.8,2.879v10.6c0,8.612,8.565,15.379,15.973,15.326,8.331-.059,16.027-7.095,16.027-15.326v-10.6a2.731,2.731,0,0,0-2.879-2.879H78.046Zm6.747,8.625,6.427,6.1,6.433-6.1c2.879-1.209,4.135,2.077,2.953,3.04l-8.377,8a2.684,2.684,0,0,1-2.011,0l-8.377-8c-1.129-1.062.341-4.4,2.953-3.04Z" transform="translate(-75.247 -261.708)" fill="#ef4056" />
   </g>
-  <rect id="長方形_3" data-name="長方形 3" width="56" height="56" fill="none"/>
+  <rect id="長方形_3" data-name="長方形 3" width="32" height="32" fill="none" />
 </svg>
