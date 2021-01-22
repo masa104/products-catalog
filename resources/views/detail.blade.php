@@ -2,7 +2,7 @@
 
 @section('stylesheet')
 
-<link rel="stylesheet" href="{{ asset('/css/pages/detail.min.css') }}">
+<link href="{{ asset('/css/pages/detail.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -123,5 +123,5 @@
 @endsection
 
 @section('script')
-<script src="{{ asset('/js/detail_anime.js') }}"></script>
+<script defer src="{{ asset('/js/detail_anime.js') }}"></script>
 @endsection

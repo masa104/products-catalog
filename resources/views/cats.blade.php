@@ -2,7 +2,7 @@
 
 
 @section('stylesheet')
-<link rel="stylesheet" href="{{ asset('/css/pages/list.min.css') }}">
+<link href="{{ asset('/css/pages/list.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -47,6 +47,6 @@
 @endsection
 
 @section('script')
-<script src="{{ asset('/js/card_anime.js') }}"></script>
-<script src="{{ asset('/js/hero_anime.js') }}"></script>
+<script defer src="{{ asset('/js/card_anime.js') }}"></script>
+<script defer src="{{ asset('/js/hero_anime.js') }}"></script>
 @endsection

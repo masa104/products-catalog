@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="robots" content="noindex, noindex">
 	<!-- Google Tag Manager -->
-	<script>
+	<script async>
 		(function (w, d, s, l, i) {
 			w[l] = w[l] || [];
 			w[l].push({
@@ -54,12 +54,12 @@
 	<meta property="og:description" content="{{ $meta_desc ?? config('app.description') }}">
 	<meta property="og:image" content="{{ $meta_image }}">
 
-	<link rel="canonical" href="{{ request()->fullUrl() }}">
-	<link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+	<link href="{{ request()->fullUrl() }}" rel="canonical">
+	<link href="{{ asset('/favicon.ico') }}" rel="shortcut icon">
 
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cosmo/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
-	<link rel="stylesheet" href="{{ asset('/css/style.min.css') }}">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cosmo/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
+	<link href="{{ asset('/css/style.min.css') }}" rel="stylesheet">
 
 	@yield('stylesheet')
 </head>
@@ -82,11 +82,14 @@
 		<div class="container text-center">
 			<span class="text-white">&copy; 2020<br>Masapochi All Rights Reserved</span>
 			<div class="tac mt-3">
-				<a class="mr-2" href="https://twitter.com/__masapochi__" target="_blank">
+				<a class="mr-2" href="https://twitter.com/__masapochi__" target="_blank" rel="noopener noreferrer">
 					<img src="{{ asset('/images/sns/twitter_gray.svg') }}" alt="Twitter" width="32" height="32">
 				</a>
-				<a href="https://github.com/masapochi/products-catalog" target="_blank">
+				<a href="https://github.com/masapochi/products-catalog" target="_blank" rel="noopener noreferrer">
 					<img src="{{ asset('/images/sns/github_gray.svg') }}" alt="Github" width="32" height="32">
+				</a>
+				<a href="{{ config('app.domain') }}" target="_blank" rel="noopener noreferrer">
+					<img src="{{ asset('/images/sns/mail_gray.svg') }}" alt="Mail" width="32" height="32">
 				</a>
 			</div>
 		</div>
@@ -94,15 +97,14 @@
 
 	<span id="gotop" href="#js-page-top">▲</span>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+	<script async src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script async src="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script defer src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+	<script defer src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
 
 	@yield('script')
 
-	<script src="{{ asset('/js/gotop.js') }}"></script>
+	<script async src="{{ asset('/js/gotop.js') }}"></script>
 </body>
 
 </html>

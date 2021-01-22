@@ -18,6 +18,7 @@ return [
     'site_name'   => env('APP_SITE_NAME', 'Laravel'),
     'base_title'  => env('APP_BASE_TITLE', 'Laravel'),
     'twitter_account' => env('TWITTER_ACCOUNT', 'Laravel'),
+    'domain' => env('APP_DOMAIN', 'Laravel'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
