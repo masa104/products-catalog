@@ -19,7 +19,7 @@
 					<a class="mr-1" href="https://twitter.com/__masapochi__" target="_blank" rel="noopener noreferrer">
 						<img src="{{ asset('/images/sns/twitter_gray.svg') }}" alt="Twitter" width="32" height="32">
 					</a>
-					<a href="https://github.com/masapochi/products-catalog" target="_blank" rel="noopener noreferrer">
+					<a class="mr-1" href="https://github.com/masapochi/products-catalog" target="_blank" rel="noopener noreferrer">
 						<img src="{{ asset('/images/sns/github_gray.svg') }}" alt="Github" width="32" height="32">
 					</a>
 					<a href="{{ config('app.domain') }}" target="_blank" rel="noopener noreferrer">
