@@ -15,7 +15,7 @@ You can search products by category or keyword.
 - 詳細ページにはSNSシェアボタンを設置
 
 
-### Live Demo
+## Live Demo
 ![](https://masapochi.me/catalog/images/ogp.jpg)
 [https://masapochi.me/catalog/](https://masapochi.me/catalog/)
 
